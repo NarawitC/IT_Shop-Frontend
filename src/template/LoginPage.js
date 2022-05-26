@@ -24,7 +24,7 @@ function LoginPage() {
           </div>
 
           <div className="col-12 col-lg-6 tw-mt-10 tw-pt-lg-23 tw-pe-lg-10 pe-xl-0">
-            <form className="border border-1 shadow p-3 rounded-lg bg-white mx-auto max-w-99">
+            {/* <form className="border border-1 shadow p-3 rounded-lg bg-white mx-auto max-w-99">
               <div className="mb-3">
                 <input
                   type="text"
@@ -64,7 +64,7 @@ function LoginPage() {
                   Create New Account
                 </button>
               </div>
-            </form>
+            </form> */}
             <div className="mt-4 text-center">
               <small>
                 <b>Create a Page</b> for a celebrity, brand or business.
@@ -74,7 +74,7 @@ function LoginPage() {
         </div>
       </div>
 
-      <div className="modal fade" id="modal-register" tabIndex="-1">
+      {/* <div className="modal fade" id="modal-register" tabIndex="-1">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
@@ -128,7 +128,7 @@ function LoginPage() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
