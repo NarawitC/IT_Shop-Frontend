@@ -80,6 +80,34 @@
 .link-text1:active {
   color: #ff6130;
 }
+
+.link-text2 {
+  color: #000000;
+  text-decoration: none;
+}
+.link-text2:hover {
+  color: #ff6130 !important;
+}
+.link-text2:visited {
+  color: #000000;
+}
+.link-text2:active {
+  color: #ff6130;
+}
+
+.link-text3 {
+  color: #0057e4;
+  text-decoration: none;
+}
+.link-text3:hover {
+  color: #ff6130 !important;
+}
+.link-text3:visited {
+  color: #0057e4;
+}
+.link-text3:active {
+  color: #ff6130;
+}
 /* ----------------------------------------- font-weight ----------------------------------------- */
 .font-weight-300 {
   font-weight: 300;
@@ -109,6 +137,19 @@
   color: #ffffff !important;
 }
 .btn-white-i:hover {
+  color: #ff6130 !important;
+}
+.btn-dark-i {
+  color: #1d1f22;
+  background-color: Transparent;
+}
+.btn-dark-i:focus {
+  color: #1d1f22 !important;
+}
+.btn-dark-i:visited {
+  color: #1d1f22 !important;
+}
+.btn-dark-i:hover {
   color: #ff6130 !important;
 }
 

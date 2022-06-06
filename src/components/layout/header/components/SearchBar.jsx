@@ -10,8 +10,8 @@ function SearchBar() {
         className=" no-border form-control p-0 m-0 "
         placeholder="Search for items"
       />
-      <button className=" p-0 m-0 ">
-        <i class="fa-solid fa-magnifying-glass "></i>
+      <button className=" p-0 m-0 btn-dark-i">
+        <i className="fa-solid fa-magnifying-glass "></i>
       </button>
     </div>
   );

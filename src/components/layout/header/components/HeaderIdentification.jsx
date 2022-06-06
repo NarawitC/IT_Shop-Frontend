@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import Category from '../../sidebar/Category';
+import ITShop from '../../logo/ITShop';
 
 function HeaderIdentification() {
   return (
@@ -8,13 +8,7 @@ function HeaderIdentification() {
       style={{ width: '220px' }}
     >
       <Category></Category>
-      <Link
-        className="link-text1 fontAudioWide"
-        style={{ fontSize: '1.8rem' }}
-        to="/"
-      >
-        &lt;IT Shop/&gt;
-      </Link>
+      <ITShop color={'white'}></ITShop>
     </div>
   );
 }
