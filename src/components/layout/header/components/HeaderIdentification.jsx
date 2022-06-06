@@ -3,8 +3,11 @@ import Category from '../../sidebar/Category';
 
 function HeaderIdentification() {
   return (
-    <div className="d-flex align-items-center">
-      <Category />
+    <div
+      className="d-flex align-items-center justify-content-between"
+      style={{ width: '220px' }}
+    >
+      <Category></Category>
       <Link
         className="link-text1 fontAudioWide"
         style={{ fontSize: '1.8rem' }}

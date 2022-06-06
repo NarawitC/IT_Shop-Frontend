@@ -103,10 +103,10 @@
   background-color: Transparent;
 }
 .btn-white-i:focus {
-  color: #ff6130 !important;
+  color: #ffffff !important;
 }
-.btn-white-i:active {
-  color: #ff6130 !important;
+.btn-white-i:visited {
+  color: #ffffff !important;
 }
 .btn-white-i:hover {
   color: #ff6130 !important;

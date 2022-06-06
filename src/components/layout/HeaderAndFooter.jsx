@@ -1,13 +1,14 @@
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './header/Header';
 
-function AuthLayout() {
+function HeaderAndFooter() {
   return (
     <div>
-      <Header></Header>
-      <Outlet></Outlet>
+      <Header />
+      <Outlet />
     </div>
   );
 }
 
-export default AuthLayout;
+export default HeaderAndFooter;
