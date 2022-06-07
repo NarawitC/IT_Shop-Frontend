@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function ITShop({ color }) {
+function ITShop({ color, fontSize }) {
   let n;
   switch (color) {
     case 'white':
@@ -10,12 +10,14 @@ function ITShop({ color }) {
       n = 3;
       break;
     default:
+      n = 3;
       break;
   }
+
   return (
     <Link
       className={`link-text${n} fontAudioWide`}
-      style={{ fontSize: '1.8rem' }}
+      style={{ fontSize: `${fontSize || '1.8rem'}` }}
       to="/"
     >
       &lt;IT Shop/&gt;
