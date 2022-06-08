@@ -1,3 +1,5 @@
+/* ****************************************** custom CSS ****************************************** */
+
 /* ----------------------------------------- font ----------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
@@ -153,7 +155,8 @@
   border: 0;
   box-shadow: none;
 }
-.btn-primary {
+.my-btn-primary {
+  color: #ffffff;
   text-align: center;
   font-size: 16px;
   width: 100%;
@@ -165,6 +168,15 @@
   box-shadow: 3px 3px 5px 1px #72757e;
   background: #0057e4;
 }
+.my-btn-primary:hover {
+  color: #ff6130;
+  box-shadow: none;
+  font-weight: 700;
+  border-color: #ff6130 !important;
+  border: 3px solid #ff6130 !important;
+  background: #ffffff;
+}
+
 .btn-white-i {
   color: #ffffff;
   background-color: Transparent;
@@ -191,8 +203,12 @@
 .btn-dark-i:hover {
   color: #ff6130 !important;
 }
+/* ****************************************** bootstrap CSS ****************************************** */
+.btn-primary {
+  background-color: #0057e4;
+}
 
-/* ----------------------------------------- global CSS ----------------------------------------- */
+/* ****************************************** global CSS ****************************************** */
 
 body {
   margin: 0;
@@ -209,4 +225,16 @@ button {
 
 i {
   font-size: 1.2rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px rgb(255, 255, 255) inset;
 }

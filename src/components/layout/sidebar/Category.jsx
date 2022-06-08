@@ -5,7 +5,7 @@ import CategoryLists from './components/CategoryLists';
 
 function Category() {
   return (
-    <>
+    <div className="me-1">
       <button
         className="btn-white-i"
         data-bs-toggle="offcanvas"
@@ -42,7 +42,7 @@ function Category() {
           <CategoryLists></CategoryLists>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

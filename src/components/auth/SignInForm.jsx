@@ -1,57 +1,53 @@
-import axios from '../../config/axios';
-import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+
+import Button from '../button/Button';
+import Form from '../layout/form/Form';
+import Input from '../layout/form/Input';
+import Header from '../layout/form/Header';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 function SignInForm() {
-  const email = useRef();
-  const password = useRef();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { signIn } = useAuthContext();
   const handleSignInBtn = async (e) => {
     e.preventDefault();
-    await axios.post('auth/signIn', {
-      email: email.current.value,
-      password: password.current.value,
-    });
+    await signIn({ email, password });
   };
-  return (
-    <>
-      <div
-        className="p-3 py-4 d-flex flex-column gap-3 bg-light1"
-        style={{ width: '400px' }}
-      >
-        <div className="font-size-24 font-text-primary font-weight-500">
-          &lt;Sign In/&gt;
-        </div>
-        <div className="bg-primary" style={{ height: '0.2rem' }}></div>
-        <div className="col d-flex flex-column gap-2">
-          <label htmlFor="emailInput" className="font-text-primary ">
-            Email address
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="emailInput"
-            placeholder="email@example.com"
-            ref={email}
-          />
+  const handleSignUpBtn = () => {
+    navigate('/auth/signUp');
+  };
 
-          <label htmlFor="passwordInput" className="font-text-primary ">
-            Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="passwordInput"
-            placeholder="Password"
-            ref={password}
-          />
-        </div>
-        <hr />
-        <div className="col">
-          <button className="btn-primary" onClick={handleSignInBtn}>
-            Sign In
-          </button>
-        </div>
+  return (
+    <Form width={'400px'}>
+      <Header text={'Sign In'}>
+        <Input
+          text={'Email address'}
+          inputType={'email'}
+          setState={setEmail}
+        ></Input>
+        <Input
+          text={'Password'}
+          inputType={'password'}
+          setState={setPassword}
+        ></Input>
+      </Header>
+
+      <div className="col d-flex flex-column gap-3">
+        <Button
+          className=" btn btn-primary"
+          onClick={handleSignInBtn}
+          text="Sign In"
+        ></Button>
+        <Button
+          className="btn btn-primary"
+          onClick={handleSignUpBtn}
+          text="Sign Up"
+        ></Button>
       </div>
-    </>
+    </Form>
   );
 }
 
