@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SubmitButton({ children, className }) {
+function SubmitButtonYup({ children, className }) {
   return (
     <button type="submit" className={className}>
       {children}
@@ -8,4 +8,4 @@ function SubmitButton({ children, className }) {
   );
 }
 
-export default SubmitButton;
+export default SubmitButtonYup;

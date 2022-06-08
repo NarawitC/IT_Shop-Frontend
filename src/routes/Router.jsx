@@ -6,7 +6,6 @@ import { useAuthContext } from '../contexts/AuthContext';
 
 function Router() {
   const { user } = useAuthContext();
-  console.log(user);
   return (
     <Routes>
       <Route path="/" element={<HeaderAndFooter></HeaderAndFooter>}>

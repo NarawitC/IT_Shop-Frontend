@@ -1,13 +1,7 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 // ------------------------------------------ Yup ------------------------------------------
-export const FormYup = ({
-  onSubmit,
-  defaultValues = {},
-  children,
-  schema,
-  style,
-}) => {
+function FormYup({ onSubmit, defaultValues = {}, children, schema, style }) {
   const methods = useForm({
     defaultValues,
     resolver: yupResolver(schema),
@@ -15,6 +9,7 @@ export const FormYup = ({
   return (
     <FormProvider {...methods}>
       <form
+        className="p-3 py-4 d-flex flex-column gap-3 bg-light1"
         onSubmit={methods.handleSubmit((data) => {
           onSubmit(data);
         })}
@@ -24,4 +19,6 @@ export const FormYup = ({
       </form>
     </FormProvider>
   );
-};
+}
+
+export default FormYup;

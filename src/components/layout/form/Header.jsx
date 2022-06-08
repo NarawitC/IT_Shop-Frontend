@@ -5,8 +5,10 @@ function Header({ text, children }) {
         &lt;{text}/&gt;
       </div>
       <div className="bg-primary" style={{ height: '0.2rem' }}></div>
-      <div className="d-flex flex-column gap-4">{children}</div>
-      <hr />
+      <div className="d-flex flex-column gap-2">
+        {children}
+        <hr />
+      </div>
     </>
   );
 }

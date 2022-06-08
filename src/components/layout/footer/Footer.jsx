@@ -6,9 +6,12 @@ function Footer() {
 
   return (
     <footer className=" bg-dark2 font-text3">
-      <section className="content-default-width py-3 mx-auto mb-3">
+      <section className="content-default-width py-3 mx-auto ">
         <ITShop color={'white'}></ITShop>
-        <div className="d-flex gap-4">
+        <div
+          className="d-flex justify-content-evenly"
+          style={{ width: '170px' }}
+        >
           <button className="btn-white-i" onClick={() => navigate('/facebook')}>
             <i
               className="fa-brands fa-facebook-square"
@@ -30,10 +33,7 @@ function Footer() {
         </div>
       </section>
 
-      <section
-        className="d-flex justify-content-between content-default-width mx-auto gap-5  "
-        style={{ fontSize: '1px' }}
-      >
+      <section className="d-flex justify-content-between content-default-width mx-auto gap-5 font-size-8  ">
         <div className="col">
           <h6 className="text-decoration-underline mb-3">About us</h6>
           <div className=" d-flex flex-column gap-3">
@@ -76,7 +76,7 @@ function Footer() {
         </div>
       </section>
 
-      <section className="text-center p-4 font-size-8">
+      <section className="text-center pb-3 font-size-8">
         © 2021 Copyright:&nbsp;
         <a className="link-text1 font-size-8" href="/">
           IT_Shop.com
