@@ -15,6 +15,7 @@ function SignInForm() {
   const handleSignInBtn = async (e) => {
     e.preventDefault();
     await signIn({ email, password });
+    navigate('/');
   };
   const handleSignUpBtn = () => {
     navigate('/auth/signUp');

@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
 
 import {
   getAccessToken,
@@ -7,11 +7,29 @@ import {
 } from '../services/localStorage';
 import { userSignIn, userSignUp } from '../api/user/auth';
 import { getUserInfo } from '../api/user/user';
+import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
 
 function AuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchMe = async () => {
+      try {
+        const token = getAccessToken();
+        if (token) {
+          const resMe = await getUserInfo();
+          setUser(resMe.data.user);
+        }
+      } catch (err) {
+        removeToken();
+        navigate('/auth/signIn');
+      }
+    };
+    fetchMe();
+  }, []);
   const signIn = async (input) => {
     const res = await userSignIn(input);
     setAccessToken(res.data.token);
@@ -59,6 +77,12 @@ function AuthContextProvider({ children }) {
       console.log(error);
     }
   };
+
+  const signOut = () => {
+    removeToken();
+    setUser(null);
+    navigate('/auth/signIn');
+  };
   return (
     <AuthContext.Provider
       value={{
@@ -78,6 +102,7 @@ function AuthContextProvider({ children }) {
         setPostalCode,
         setAddressDescription,
         signUp,
+        signOut,
       }}
     >
       {children}
