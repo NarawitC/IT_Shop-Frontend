@@ -50,18 +50,23 @@ function AuthContextProvider({ children }) {
   const [postalCode, setPostalCode] = useState('');
   const [addressDescription, setAddressDescription] = useState('');
 
-  const signUp = async () => {
+  const signUp = async ({
+    firstName,
+    lastName,
+    phoneNumber,
+    email,
+    password,
+    confirmPassword,
+    address,
+    addressDescription,
+  }) => {
     try {
-      let address =
-        StreetName.trim() +
-        province.trim() +
-        district.trim() +
-        postalCode.trim();
       if (!address) {
         address = null;
       }
-      if (!addressDescription.trim()) {
-        setAddressDescription(null);
+      console.log(address);
+      if (!addressDescription) {
+        addressDescription = null;
       }
       await userSignUp({
         firstName,

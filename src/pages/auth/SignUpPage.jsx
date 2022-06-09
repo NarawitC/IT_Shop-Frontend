@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import SignUpForm1 from '../../components/auth/SignUpForm1';
 import SignUpForm2 from '../../components/auth/SignUpForm2';
-import SignUpYup from '../../components/auth/SignInFormYup';
+import SignUpFormYup from "../../components/auth/SignUpFormYup";
 import { useAuthContext } from '../../contexts/AuthContext';
 
 function SignUpPage() {
@@ -12,7 +12,7 @@ function SignUpPage() {
   }, []);
   return (
     <div className="container-fluid content-default-width mx-auto">
-      <SignUpYup></SignUpYup>
+      <SignUpFormYup></SignUpFormYup>
       {/* {signUpPage === '1' ? <SignUpForm1 /> : null}
       {signUpPage === '2' ? <SignUpForm2 /> : null} */}
     </div>
