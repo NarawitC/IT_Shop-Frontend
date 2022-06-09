@@ -12,9 +12,9 @@ function ErrorContextProvider({ children }) {
   );
 }
 
-const useError = () => {
+const useErrorContext = () => {
   const ctx = useContext(ErrorContext);
   return ctx;
 };
 export default ErrorContextProvider;
-export { ErrorContext, useError };
+export { useErrorContext };

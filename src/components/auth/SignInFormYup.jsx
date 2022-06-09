@@ -7,10 +7,12 @@ import Header from '../layout/form/Header';
 import Button from '../button/Button';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useErrorContext } from '../../contexts/ErrorContext';
 
 function SignInFormYup() {
   const navigate = useNavigate();
   const { signIn } = useAuthContext();
+  const { setError } = useErrorContext();
 
   const schema = yup.object().shape({
     email: yup.string().required('Email is required').email('Email'),
@@ -25,7 +27,7 @@ function SignInFormYup() {
       });
       navigate('/');
     } catch (err) {
-      console.log(err);
+      setError(err.response.data.message);
     }
   };
   const handleSignUpBtn = () => {

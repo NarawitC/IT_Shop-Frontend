@@ -8,12 +8,14 @@ import {
 import { userSignIn, userSignUp } from '../api/user/auth';
 import { getUserInfo } from '../api/user/user';
 import { useNavigate } from 'react-router-dom';
+import { useErrorContext } from './ErrorContext';
 
 const AuthContext = createContext();
 
 function AuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const { setError } = useErrorContext();
 
   useEffect(() => {
     const fetchMe = async () => {
@@ -47,27 +49,22 @@ function AuthContextProvider({ children }) {
     address,
     addressDescription,
   }) => {
-    try {
-      if (!address) {
-        address = null;
-      }
-      console.log(address);
-      if (!addressDescription) {
-        addressDescription = null;
-      }
-      await userSignUp({
-        firstName,
-        lastName,
-        phoneNumber,
-        email,
-        password,
-        confirmPassword,
-        address,
-        addressDescription,
-      });
-    } catch (error) {
-      console.log(error);
+    if (!address) {
+      address = null;
     }
+    if (!addressDescription) {
+      addressDescription = null;
+    }
+    await userSignUp({
+      firstName,
+      lastName,
+      phoneNumber,
+      email,
+      password,
+      confirmPassword,
+      address,
+      addressDescription,
+    });
   };
 
   const signOut = () => {

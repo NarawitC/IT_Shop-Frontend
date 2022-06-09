@@ -7,12 +7,15 @@ import 'bootstrap';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ErrorContextProvider from './contexts/ErrorContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <ErrorContextProvider>
+        <App />
+      </ErrorContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

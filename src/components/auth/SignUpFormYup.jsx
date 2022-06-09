@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 import FormYup from '../layout/form/FormYup';
 import InputYup from '../layout/form/InputYup';
@@ -6,9 +7,12 @@ import SubmitButtonYup from '../layout/form/SubmitButtonYup';
 import TextAreaYup from '../layout/form/TextAreaYup';
 import Header from '../layout/form/Header';
 import { useAuthContext } from '../../contexts/AuthContext';
+import { useErrorContext } from '../../contexts/ErrorContext';
 
 function SignUpFormYup() {
   const { signUp } = useAuthContext();
+  const { setError } = useErrorContext();
+  const navigate = useNavigate();
 
   const schema = yup.object().shape({
     firstName: yup.string().required('First name is required'),
@@ -44,8 +48,9 @@ function SignUpFormYup() {
         postalCode
       ).trim();
       await signUp(data);
+      navigate('/');
     } catch (err) {
-      console.log(err);
+      setError(err.response.data.message);
     }
   };
 
