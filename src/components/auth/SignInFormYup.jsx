@@ -13,8 +13,8 @@ function SignInFormYup() {
   const { signIn } = useAuthContext();
 
   const schema = yup.object().shape({
-    email: yup.string().required('Email is requied').email('Email'),
-    password: yup.string().required('Password is requied'),
+    email: yup.string().required('Email is required').email('Email'),
+    password: yup.string().required('Password is required'),
   });
 
   const handleSignInSubmit = async (data, reset) => {
@@ -33,7 +33,6 @@ function SignInFormYup() {
   };
   return (
     <FormYup
-      style={{ width: '400px' }}
       onSubmit={handleSignInSubmit}
       defaultValues={{ email: '', password: '' }}
       schema={schema}
