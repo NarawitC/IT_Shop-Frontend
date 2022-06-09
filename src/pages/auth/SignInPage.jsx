@@ -1,4 +1,3 @@
-import SignInForm from '../../components/auth/SignInForm';
 import ITShop from '../../components/layout/logo/ITShop';
 import SignInFormYup from '../../components/auth/SignInFormYup';
 

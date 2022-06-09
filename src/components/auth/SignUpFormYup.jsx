@@ -5,12 +5,9 @@ import InputYup from '../layout/form/InputYup';
 import SubmitButtonYup from '../layout/form/SubmitButtonYup';
 import TextAreaYup from '../layout/form/TextAreaYup';
 import Header from '../layout/form/Header';
-import Button from '../button/Button';
 import { useAuthContext } from '../../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
 
 function SignUpFormYup() {
-  const navigate = useNavigate();
   const { signUp } = useAuthContext();
 
   const schema = yup.object().shape({

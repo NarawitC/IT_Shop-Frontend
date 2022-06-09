@@ -37,19 +37,6 @@ function AuthContextProvider({ children }) {
     setUser(resMe.data.user);
   };
 
-  const [signUpPage, setSignUpPage] = useState('1');
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [phoneNumber, setPhoneNumber] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [confirmPassword, setConfirmPassword] = useState();
-  const [StreetName, setStreetName] = useState('');
-  const [province, setProvince] = useState('');
-  const [district, setDistrict] = useState('');
-  const [postalCode, setPostalCode] = useState('');
-  const [addressDescription, setAddressDescription] = useState('');
-
   const signUp = async ({
     firstName,
     lastName,
@@ -93,19 +80,6 @@ function AuthContextProvider({ children }) {
       value={{
         signIn,
         user,
-        signUpPage,
-        setSignUpPage,
-        setFirstName,
-        setLastName,
-        setPhoneNumber,
-        setEmail,
-        setPassword,
-        setConfirmPassword,
-        setStreetName,
-        setProvince,
-        setDistrict,
-        setPostalCode,
-        setAddressDescription,
         signUp,
         signOut,
       }}
