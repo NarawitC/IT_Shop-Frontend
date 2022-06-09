@@ -95,11 +95,13 @@ function SignUpFormYup() {
           name="password"
           text={'Password'}
           placeholder="Password"
+          type="password"
         ></InputYup>
         <InputYup
           name="confirmPassword"
           text={'Confirm password'}
           placeholder="Confirm password"
+          type="password"
         ></InputYup>
         <InputYup
           name="streetName"

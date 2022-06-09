@@ -36,6 +36,7 @@ function SignInFormYup() {
       onSubmit={handleSignInSubmit}
       defaultValues={{ email: '', password: '' }}
       schema={schema}
+      style={{ width: '400px' }}
     >
       <Header text={'Sign In'}>
         <InputYup
@@ -47,6 +48,7 @@ function SignInFormYup() {
           name="password"
           text={'Password'}
           placeholder="Password"
+          type="password"
         ></InputYup>
       </Header>
       <SubmitButtonYup className={'btn btn-primary'}>Sign In</SubmitButtonYup>
