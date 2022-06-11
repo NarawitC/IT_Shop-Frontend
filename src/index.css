@@ -9,71 +9,7 @@
 .fontAudioWide {
   font-family: 'Audiowide', cursive;
 }
-/* ----------------------------------------- background-color ----------------------------------------- */
-.bg-primary1 {
-  background-color: #0057e4;
-}
-.bg-primary2 {
-  background-color: #4c73ff;
-}
-.bg-primary3 {
-  background-color: #7691ff;
-}
-.bg-primary4 {
-  background-color: #9cafff;
-}
-.bg-primary5 {
-  background-color: #c1cfff;
-}
-.bg-secondary1 {
-  background-color: #ff6130;
-}
-.bg-secondary2 {
-  background-color: #ff7b52;
-}
-.bg-secondary3 {
-  background-color: #ff8e6b;
-}
-.bg-secondary4 {
-  background-color: #ffb199;
-}
-.bg-secondary5 {
-  background-color: #ff3c00;
-}
-.bg-gray1 {
-  background-color: #72757e;
-}
-.bg-gray2 {
-  background-color: #8d8f9a;
-}
-.bg-light1 {
-  background-color: #ffffff;
-}
-.bg-light2 {
-  background-color: #f1f2f3;
-}
-.bg-dark1 {
-  background-color: #1d1f22;
-}
-.bg-dark2 {
-  background-color: #43464e;
-}
-/* ----------------------------------------- font-color ----------------------------------------- */
-.font-text1 {
-  color: #000000;
-}
-.font-text2 {
-  color: #7e7f83;
-}
-.font-text3 {
-  color: #ffffff;
-}
-.font-text-primary {
-  color: #0057e4;
-}
-.font-text-secondary {
-  color: #ff6130;
-}
+
 /* ----------------------------------------- link-color ----------------------------------------- */
 .link-text1 {
   color: #ffffff;
@@ -114,6 +50,20 @@
   color: #0057e4;
 }
 .link-text3:active {
+  color: #ff6130;
+}
+
+.link-text4 {
+  color: #7e7f83;
+  text-decoration: none;
+}
+.link-text4:hover {
+  color: #ff6130 !important;
+}
+.link-text4:visited {
+  color: #7e7f83;
+}
+.link-text4:active {
   color: #ff6130;
 }
 /* ----------------------------------------- font-weight ----------------------------------------- */
@@ -206,7 +156,6 @@
 }
 .btn-gray-i {
   color: #7e7f83;
-
   background-color: Transparent;
 }
 .btn-gray-i:focus {
@@ -218,10 +167,90 @@
 .btn-gray-i:hover {
   color: #ff6130 !important;
 }
+
+.btn-user-link {
+  color: #7e7f83;
+  background-color: Transparent;
+}
+.btn-user-link:focus {
+  color: #7e7f83 !important;
+}
+.btn-user-link:visited {
+  color: #7e7f83 !important;
+}
+.btn-user-link:hover {
+  color: #ff6130 !important;
+  text-decoration: underline;
+}
 /* ----------------------------------------- horizontal rule ----------------------------------------- */
 .hr-gray {
   background-color: #8d8f9a;
   padding: 0.5px 50%;
+}
+/* ----------------------------------------- font-color ----------------------------------------- */
+.font-text1 {
+  color: #000000;
+}
+.font-text2 {
+  color: #7e7f83;
+}
+.font-text3 {
+  color: #ffffff;
+}
+.font-text-primary {
+  color: #0057e4;
+}
+.font-text-secondary {
+  color: #ff6130;
+}
+/* ----------------------------------------- background-color ----------------------------------------- */
+.bg-primary1 {
+  background-color: #0057e4;
+}
+.bg-primary2 {
+  background-color: #4c73ff;
+}
+.bg-primary3 {
+  background-color: #7691ff;
+}
+.bg-primary4 {
+  background-color: #9cafff;
+}
+.bg-primary5 {
+  background-color: #c1cfff;
+}
+.bg-secondary1 {
+  background-color: #ff6130;
+}
+.bg-secondary2 {
+  background-color: #ff7b52;
+}
+.bg-secondary3 {
+  background-color: #ff8e6b;
+}
+.bg-secondary4 {
+  background-color: #ffb199;
+}
+.bg-secondary5 {
+  background-color: #ff3c00;
+}
+.bg-gray1 {
+  background-color: #72757e;
+}
+.bg-gray2 {
+  background-color: #8d8f9a;
+}
+.bg-light1 {
+  background-color: #ffffff;
+}
+.bg-light2 {
+  background-color: #f1f2f3;
+}
+.bg-dark1 {
+  background-color: #1d1f22;
+}
+.bg-dark2 {
+  background-color: #43464e;
 }
 
 /* ****************************************** bootstrap CSS ****************************************** */

@@ -1,9 +1,14 @@
 import Category from '../../sidebar/Category';
 import ITShop from '../../logo/ITShop';
 import { useAuthContext } from '../../../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { getAccessToken, removeToken } from '../../../../services/localStorage';
+import { getUserInfo } from '../../../../api/user/user';
 
 function HeaderIdentification({ pageStatus }) {
-  const { user } = useAuthContext();
+  const { setUser, user } = useAuthContext();
+
   const {
     isAuthPage,
     isUserPage,

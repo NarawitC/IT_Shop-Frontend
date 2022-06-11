@@ -79,6 +79,7 @@ function AuthContextProvider({ children }) {
         user,
         signUp,
         signOut,
+        setUser,
       }}
     >
       {children}

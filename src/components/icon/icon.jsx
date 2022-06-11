@@ -50,9 +50,9 @@ export const DollarIcon = ({ className, style }) => {
     <i className={`fa-solid fa-dollar-sign ${className}`} style={style}></i>
   );
 };
-export const TruckIcon = ({ className, style }) => {
+export const DeliveryIcon = ({ className, style }) => {
   return (
-    <i className={`fa-solid fa-truck-sign ${className}`} style={style}></i>
+    <i className={`fa-solid fa-truck-fast ${className}`} style={style}></i>
   );
 };
 // -------------------------------- social media --------------------------------
@@ -71,4 +71,15 @@ export const InstagramIcon = ({ className, style }) => {
 };
 export const LineIcon = ({ className, style }) => {
   return <i className={`fa-brands fa-line ${className}`} style={style}></i>;
+};
+// -------------------------------- user --------------------------------
+export const LockIcon = ({ className, style }) => {
+  return (
+    <i className={`fa-solid fa-unlock-keyhole ${className}`} style={style}></i>
+  );
+};
+export const LocationIcon = ({ className, style }) => {
+  return (
+    <i className={`fa-solid fa-location-dot ${className}`} style={style}></i>
+  );
 };

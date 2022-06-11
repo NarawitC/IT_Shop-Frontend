@@ -8,7 +8,7 @@ import {
   InformationIcon,
   PhoneIcon,
   DollarIcon,
-  TruckIcon,
+  DeliveryIcon,
 } from '../../icon/icon';
 function Footer() {
   const navigate = useNavigate();
@@ -40,11 +40,12 @@ function Footer() {
         <div className="col">
           <h6 className="text-decoration-underline mb-3">About us</h6>
           <div className=" d-flex flex-column gap-3">
-            <div className="d-flex">
+            <div className="d-flex justify-content-between">
               <InformationIcon
                 className={'font-size-8 mt-1 me-2'}
               ></InformationIcon>
-              <div className="font-size-12">
+
+              <div className="font-size-12" style={{ width: '150px' }}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
                 dolorem magni officiis voluptate natus, nemo mollitia cumque
                 consectetur incidunt veritatis.
@@ -55,9 +56,11 @@ function Footer() {
         <div className="col">
           <h6 className="text-decoration-underline mb-3">Contact us</h6>
           <div className=" d-flex flex-column gap-3">
-            <div className="d-flex">
+            <div className="d-flex justify-content-between">
               <PhoneIcon className="font-size-8 mt-1 me-2"></PhoneIcon>
-              <p>099-999-9999</p>
+              <div className="font-size-12" style={{ width: '150px' }}>
+                099-999-9999
+              </div>
             </div>
           </div>
         </div>
@@ -66,17 +69,18 @@ function Footer() {
             Payment and Delivery
           </h6>
           <div className=" d-flex flex-column ">
-            <div className="d-flex">
+            <div className="d-flex justify-content-between">
               <DollarIcon className="font-size-8 mt-1 me-2"></DollarIcon>
-              <p>bank transfer</p>
+              <div className="font-size-12" style={{ width: '150px' }}>
+                bank transfer
+              </div>
             </div>
-            <div className="d-flex">
-              <i className="fa-solid fa-truck font-size-8 mt-1 me-2 "></i>
-              <TruckIcon className="font-size-8 mt-1 me-2"></TruckIcon>
-              <p>
+            <div className="d-flex justify-content-between">
+              <DeliveryIcon className="font-size-12 mt-1 me-2"></DeliveryIcon>
+              <div className="font-size-12" style={{ width: '150px' }}>
                 Mint tower, 719 Banthat Thong Road, Wang Mai Subdistrict, Pathum
                 Wan District, Bangkok 10330
-              </p>
+              </div>
             </div>
           </div>
         </div>
