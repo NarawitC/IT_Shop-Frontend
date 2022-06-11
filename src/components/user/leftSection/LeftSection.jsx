@@ -10,20 +10,22 @@ function LeftSection() {
     user: { firstName, lastName },
   } = useAuthContext();
   return (
-    <div className="col-3 bg-light1 px-2 py-3 d-flex flex-column gap-3">
-      <div className="ms-3">{firstName + ' ' + lastName}</div>
+    <div className="col-3 bg-light1 px-2 py-3 d-flex flex-column gap-3 h-25">
+      <div className="ms-3 font-size-24 font-weight-500">
+        {firstName + ' ' + lastName}
+      </div>
       <div className="hr-gray"></div>
       <div className="d-flex flex-column gap-2 ms-2">
-        <MenuItem menuName={'Profile'} thisPage={'1'}>
+        <MenuItem menuName={'Profile'} thisPage={'Profile'}>
           <UserIcon className={'font-size-12'}></UserIcon>
         </MenuItem>
-        <MenuItem menuName={'Password'} thisPage={'2'}>
+        <MenuItem menuName={'Password'} thisPage={'Password'}>
           <LockIcon className={'font-size-12'}></LockIcon>
         </MenuItem>
-        <MenuItem menuName={'Address'} thisPage={'3'}>
+        <MenuItem menuName={'Address'} thisPage={'Address'}>
           <LocationIcon className={'font-size-12'}></LocationIcon>
         </MenuItem>
-        <MenuItem menuName={'My purchase'} thisPage={'4'}>
+        <MenuItem menuName={'My purchase'} thisPage={'My purchase'}>
           <DollarIcon className={'font-size-12'}></DollarIcon>
         </MenuItem>
       </div>

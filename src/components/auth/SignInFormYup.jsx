@@ -45,12 +45,14 @@ function SignInFormYup() {
           name="email"
           text={'Email address'}
           placeholder="Email Address"
+          autoComplete="false"
         ></InputYup>
         <InputYup
           name="password"
           text={'Password'}
           placeholder="Password"
           type="password"
+          autoComplete="false"
         ></InputYup>
       </Header>
       <SubmitButtonYup className={'btn btn-primary'}>Sign In</SubmitButtonYup>

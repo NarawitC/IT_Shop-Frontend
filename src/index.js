@@ -11,13 +11,13 @@ import ErrorContextProvider from './contexts/ErrorContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <ErrorContextProvider>
-        <App />
-      </ErrorContextProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <BrowserRouter>
+    <ErrorContextProvider>
+      <App />
+    </ErrorContextProvider>
+  </BrowserRouter>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

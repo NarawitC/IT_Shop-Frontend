@@ -49,10 +49,10 @@ function AuthContextProvider({ children }) {
     address,
     addressDescription,
   }) => {
-    if (!address) {
+    if (!address.trim()) {
       address = null;
     }
-    if (!addressDescription) {
+    if (!addressDescription.trim()) {
       addressDescription = null;
     }
     await userSignUp({

@@ -1,10 +1,45 @@
 import { createContext, useState, useContext, useEffect } from 'react';
-const UserContext = createContext();
 
+import { updateUserInfo } from '../api/user/user';
+
+const UserContext = createContext();
 const UserContextProvider = ({ children }) => {
-  const [page, setPage] = useState('1');
+  const [page, setPage] = useState('Profile');
+  const updateInfo = async ({
+    firstName,
+    lastName,
+    phoneNumber,
+    email,
+    password,
+    confirmPassword,
+    address,
+    addressDescription,
+  }) => {
+    if (!address.trim()) {
+      address = undefined;
+    }
+    if (!addressDescription.trim()) {
+      addressDescription = undefined;
+    }
+    if (!password.trim()) {
+      password = undefined;
+    }
+    if (!confirmPassword.trim()) {
+      confirmPassword = undefined;
+    }
+    await updateUserInfo({
+      firstName,
+      lastName,
+      phoneNumber,
+      email,
+      password,
+      confirmPassword,
+      address,
+      addressDescription,
+    });
+  };
   return (
-    <UserContext.Provider value={{ page, setPage }}>
+    <UserContext.Provider value={{ page, setPage, updateInfo }}>
       {children}
     </UserContext.Provider>
   );

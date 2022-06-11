@@ -38,17 +38,11 @@ function SignUpFormYup() {
   const handleSignUpSubmit = async (data, reset) => {
     try {
       const { streetName, province, district, postalCode } = data;
-      data.address = (
-        streetName +
-        ' ' +
-        province +
-        ' ' +
-        district +
-        ' ' +
-        postalCode
-      ).trim();
+      data.address =
+        streetName + ' ' + province + ' ' + district + ' ' + postalCode;
       await signUp(data);
       navigate('/');
+      reset();
     } catch (err) {
       setError(err.response.data.message);
     }
