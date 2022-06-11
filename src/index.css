@@ -143,7 +143,8 @@
 /* ----------------------------------------- content-width ----------------------------------------- */
 .content-default-width {
   width: 80vw;
-  margin: 1rem;
+  margin: 1rem auto;
+  padding: 0;
 }
 /* ----------------------------------------- border ----------------------------------------- */
 .no-border {
@@ -203,6 +204,26 @@
 .btn-dark-i:hover {
   color: #ff6130 !important;
 }
+.btn-gray-i {
+  color: #7e7f83;
+
+  background-color: Transparent;
+}
+.btn-gray-i:focus {
+  color: #7e7f83 !important;
+}
+.btn-gray-i:visited {
+  color: #7e7f83 !important;
+}
+.btn-gray-i:hover {
+  color: #ff6130 !important;
+}
+/* ----------------------------------------- horizontal rule ----------------------------------------- */
+.hr-gray {
+  background-color: #8d8f9a;
+  padding: 0.5px 50%;
+}
+
 /* ****************************************** bootstrap CSS ****************************************** */
 .btn-primary {
   background-color: #0057e4;

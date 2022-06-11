@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 
 import SubCategoryLists from './SubCategoryLists';
+import { ChevronDownIcon } from '../../../icon/icon';
+
 function CategoryLists() {
   const categories = ['Notebook', 'Computer', 'Headphone', 'Accessories'];
   return (
@@ -29,10 +31,7 @@ function CategoryLists() {
                 aria-expanded="false"
                 aria-label="Toggle navigation"
               >
-                <i
-                  className="fa-solid fa-chevron-down"
-                  style={{ fontSize: '1rem' }}
-                ></i>
+                <ChevronDownIcon style={{ fontSize: '1rem' }}></ChevronDownIcon>
               </button>
             </li>
             <SubCategoryLists key={idx} category={category}></SubCategoryLists>

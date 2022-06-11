@@ -1,6 +1,15 @@
 import ITShop from '../logo/ITShop';
 
 import { useNavigate } from 'react-router-dom';
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LineIcon,
+  InformationIcon,
+  PhoneIcon,
+  DollarIcon,
+  TruckIcon,
+} from '../../icon/icon';
 function Footer() {
   const navigate = useNavigate();
 
@@ -13,22 +22,16 @@ function Footer() {
           style={{ width: '170px' }}
         >
           <button className="btn-white-i" onClick={() => navigate('/facebook')}>
-            <i
-              className="fa-brands fa-facebook-square"
-              style={{ fontSize: '20px' }}
-            ></i>
+            <FacebookIcon style={{ fontSize: '20px' }}></FacebookIcon>
           </button>
           <button
             className="btn-white-i"
             onClick={() => navigate('/instagram')}
           >
-            <i
-              className="fa-brands fa-instagram"
-              style={{ fontSize: '20px' }}
-            ></i>
+            <InstagramIcon style={{ fontSize: '20px' }}></InstagramIcon>
           </button>
           <button className="btn-white-i" onClick={() => navigate('/line')}>
-            <i className="fa-brands fa-line" style={{ fontSize: '20px' }}></i>
+            <LineIcon style={{ fontSize: '20px' }}></LineIcon>
           </button>
         </div>
       </section>
@@ -38,7 +41,9 @@ function Footer() {
           <h6 className="text-decoration-underline mb-3">About us</h6>
           <div className=" d-flex flex-column gap-3">
             <div className="d-flex">
-              <i className="fa-solid fa-circle-info font-size-8 mt-1 me-2 underline"></i>
+              <InformationIcon
+                className={'font-size-8 mt-1 me-2'}
+              ></InformationIcon>
               <div className="font-size-12">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
                 dolorem magni officiis voluptate natus, nemo mollitia cumque
@@ -51,7 +56,7 @@ function Footer() {
           <h6 className="text-decoration-underline mb-3">Contact us</h6>
           <div className=" d-flex flex-column gap-3">
             <div className="d-flex">
-              <i className="fa-solid fa-phone font-size-8 mt-1 me-2 underline"></i>
+              <PhoneIcon className="font-size-8 mt-1 me-2"></PhoneIcon>
               <p>099-999-9999</p>
             </div>
           </div>
@@ -62,11 +67,12 @@ function Footer() {
           </h6>
           <div className=" d-flex flex-column ">
             <div className="d-flex">
-              <i className="fa-solid fa-money-check-dollar font-size-8 mt-1 me-2 underline"></i>
+              <DollarIcon className="font-size-8 mt-1 me-2"></DollarIcon>
               <p>bank transfer</p>
             </div>
             <div className="d-flex">
-              <i className="fa-solid fa-truck font-size-8 mt-1 me-2 underline"></i>
+              <i className="fa-solid fa-truck font-size-8 mt-1 me-2 "></i>
+              <TruckIcon className="font-size-8 mt-1 me-2"></TruckIcon>
               <p>
                 Mint tower, 719 Banthat Thong Road, Wang Mai Subdistrict, Pathum
                 Wan District, Bangkok 10330

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 import ITShop from '../logo/ITShop';
 import CategoryLists from './components/CategoryLists';
+import { BarsIcon, XIcon } from '../../icon/icon';
 
 function Category() {
   return (
@@ -12,7 +13,7 @@ function Category() {
         data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar"
       >
-        <i className="fa-solid fa-bars"></i>
+        <BarsIcon></BarsIcon>
       </button>
       <div
         className="offcanvas offcanvas-start"
@@ -35,7 +36,7 @@ function Category() {
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           >
-            <i className="fa-solid fa-xmark"></i>
+            <XIcon></XIcon>
           </button>
         </div>
         <div style={{ padding: '0 1.5rem' }}>
