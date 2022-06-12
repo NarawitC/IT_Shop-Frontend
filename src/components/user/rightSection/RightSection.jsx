@@ -53,7 +53,7 @@ function RightSection() {
     }
   };
   return (
-    <div className="col-9 ">
+    <div className="col-10 ">
       {page === 'Profile' || page === 'Password' || page === 'Address' ? (
         <FormYup
           onSubmit={handleEditSubmit}

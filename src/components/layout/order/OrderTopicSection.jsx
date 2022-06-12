@@ -14,7 +14,7 @@ function OrderTopicSection({
       style={{ backgroundColor: backgroundColor ? backgroundColor : '#ffffff' }}
     >
       <div
-        className="col-5 align-items-center font-size-20 font-weight-500"
+        className="col-5 ps-5 align-items-center font-size-20 font-weight-500"
         style={{ textColor }}
       >
         {textCol1}
@@ -29,7 +29,7 @@ function OrderTopicSection({
         <div className="col-3 text-center" style={{ textColor }}>
           {textCol4}
         </div>
-        {textCol5 ? <div className="col-4 text-center">{textCol2}</div> : null}
+        {textCol5 ? <div className="col-4 text-center">{textCol5}</div> : null}
       </div>
       {children}
     </div>

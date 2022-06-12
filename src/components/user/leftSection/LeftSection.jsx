@@ -15,7 +15,7 @@ function LeftSection() {
   }, []);
 
   return (
-    <div className="col-3 bg-light1 px-2 py-3 d-flex flex-column gap-3 h-25">
+    <div className="col-2 bg-light1 px-2 py-3 d-flex flex-column gap-3 h-25">
       <div className="ms-3 font-size-24 font-weight-500">
         {firstName + ' ' + lastName}
       </div>
