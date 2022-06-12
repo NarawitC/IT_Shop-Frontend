@@ -36,13 +36,13 @@ function Footer() {
         </div>
       </section>
 
-      <section className="d-flex justify-content-between content-default-width mx-auto gap-5 font-size-8  ">
+      <section className="d-flex justify-content-between content-default-width mx-auto gap-5 font-size-12  ">
         <div className="col">
           <h6 className="text-decoration-underline mb-3">About us</h6>
           <div className=" d-flex flex-column gap-3">
             <div className="d-flex">
               <InformationIcon
-                className={'font-size-8 mt-1 me-2 col-1'}
+                className={'font-size-12 mt-1 me-2 col-1'}
               ></InformationIcon>
 
               <div className="font-size-12" style={{ width: '150px' }}>
@@ -57,7 +57,7 @@ function Footer() {
           <h6 className="text-decoration-underline mb-3">Contact us</h6>
           <div className=" d-flex flex-column gap-3">
             <div className="d-flex ">
-              <PhoneIcon className="font-size-8 mt-1 me-2 col-1"></PhoneIcon>
+              <PhoneIcon className="font-size-12 mt-1 me-2 col-1"></PhoneIcon>
               <div className="font-size-12" style={{ width: '150px' }}>
                 099-999-9999
               </div>
@@ -70,9 +70,9 @@ function Footer() {
           </h6>
           <div className=" d-flex flex-column gap-2 ">
             <div className="d-flex ">
-              <DollarIcon className="font-size-8 mt-1 me-2 col-1"></DollarIcon>
+              <DollarIcon className="font-size-12 mt-1 me-2 col-1"></DollarIcon>
               <div className="font-size-12" style={{ width: '150px' }}>
-                bank transfer
+                Bank transfer
               </div>
             </div>
             <div className="d-flex ">
@@ -86,9 +86,9 @@ function Footer() {
         </div>
       </section>
 
-      <section className="text-center pb-3 font-size-8">
+      <section className="text-center pb-3 font-size-12">
         © 2021 Copyright:&nbsp;
-        <a className="link-text1 font-size-8" href="/">
+        <a className="link-text1 font-size-12" href="/">
           IT_Shop.com
         </a>
       </section>
