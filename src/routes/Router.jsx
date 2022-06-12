@@ -5,7 +5,6 @@ import HeaderAndFooter from '../components/layout/HeaderAndFooter';
 import SignInPage from '../pages/auth/SignInPage';
 import SignUpPage from '../pages/auth/SignUpPage';
 import UserPage from '../pages/user/UserPage';
-import UpdatedUserPage from '../pages/user/UpdatedUserPage';
 import HomePage from '../pages/HomePage';
 
 function Router() {
@@ -13,22 +12,19 @@ function Router() {
   return (
     <Routes>
       {user ? (
-        <Route path="/" element={<HeaderAndFooter></HeaderAndFooter>}>
-          <Route path="/home" element={<HomePage></HomePage>} />
-          <Route path="/user" element={<UserPage></UserPage>}>
-            <Route
-              path="/user/updated"
-              element={<UpdatedUserPage></UpdatedUserPage>}
-            />
+        <>
+          <Route path="/" element={<HeaderAndFooter></HeaderAndFooter>}>
+            <Route path="" element={<HomePage></HomePage>} />
+            <Route path="user" element={<UserPage></UserPage>}></Route>
           </Route>
-          <Route path="*" element={<Navigate to="/home"></Navigate>}></Route>
-        </Route>
+          <Route path="*" element={<Navigate to="/"></Navigate>}></Route>
+        </>
       ) : (
         <Route path="/" element={<HeaderAndFooter></HeaderAndFooter>}>
           <Route path="/auth/signUp" element={<SignUpPage></SignUpPage>} />
           <Route path="/auth/signIn" element={<SignInPage></SignInPage>} />
           <Route
-            path="*"
+            path="/"
             element={<Navigate to="/auth/signIn"></Navigate>}
           ></Route>
         </Route>
