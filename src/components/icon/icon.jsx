@@ -83,3 +83,13 @@ export const LocationIcon = ({ className, style }) => {
     <i className={`fa-solid fa-location-dot ${className}`} style={style}></i>
   );
 };
+// -------------------------------- common --------------------------------
+export const BahtIcon = ({ className, style }) => {
+  return <i className={`fa-solid fa-baht-sign ${className}`} style={style}></i>;
+};
+export const EyeIcon = ({ className, style }) => {
+  return <i className={`fa-solid fa-eye ${className}`} style={style}></i>;
+};
+export const CheckIcon = ({ className, style }) => {
+  return <i className={`fa-solid fa-check ${className}`} style={style}></i>;
+};

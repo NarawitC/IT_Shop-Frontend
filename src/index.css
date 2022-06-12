@@ -83,12 +83,6 @@
 .font-size-12 {
   font-size: 12px;
 }
-.font-size-8 {
-  font-size: 8px;
-}
-.font-size-4 {
-  font-size: 4px;
-}
 
 /* ----------------------------------------- content-width ----------------------------------------- */
 .content-default-width {
@@ -167,6 +161,19 @@
 .btn-gray-i:hover {
   color: #ff6130 !important;
 }
+.btn-green-i {
+  color: #00c300;
+  background-color: Transparent;
+}
+.btn-green-i:focus {
+  color: #00c300 !important;
+}
+.btn-green-i:visited {
+  color: #00c300 !important;
+}
+.btn-green-i:hover {
+  color: #ff6130 !important;
+}
 
 .btn-user-link {
   color: #7e7f83;
@@ -182,10 +189,31 @@
   color: #ff6130 !important;
   text-decoration: underline;
 }
+/* ----------------------------------------- checkbox ----------------------------------------- */
+.checkbox-bg-primary {
+  color: #ffffff;
+  background-color: #ffffff;
+}
+.checkbox-bg-primary:focus {
+  color: #ffffff;
+  background-color: #ffffff;
+}
+.checkbox-bg-primary:visited {
+  color: #ffffff;
+  background-color: #ffffff;
+}
+.checkbox-bg-primary:hover {
+  color: #ffffff;
+  background-color: #0057e4;
+}
 /* ----------------------------------------- horizontal rule ----------------------------------------- */
 .hr-gray {
   background-color: #8d8f9a;
-  padding: 0.5px 50%;
+  padding: 1px 50%;
+}
+.hr-primary {
+  background-color: #0057e4;
+  padding: 1px 50%;
 }
 /* ----------------------------------------- font-color ----------------------------------------- */
 .font-text1 {

@@ -38,8 +38,20 @@ const UserContextProvider = ({ children }) => {
       addressDescription,
     });
   };
+  const [purchasedOrders, setPurchasedOrders] = useState([]);
+  const [selectedPurchasedOrder, setSelectedPurchasedOrder] = useState(null);
   return (
-    <UserContext.Provider value={{ page, setPage, updateInfo }}>
+    <UserContext.Provider
+      value={{
+        page,
+        setPage,
+        updateInfo,
+        purchasedOrders,
+        setPurchasedOrders,
+        selectedPurchasedOrder,
+        setSelectedPurchasedOrder,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

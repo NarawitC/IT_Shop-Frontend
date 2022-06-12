@@ -40,9 +40,9 @@ function Footer() {
         <div className="col">
           <h6 className="text-decoration-underline mb-3">About us</h6>
           <div className=" d-flex flex-column gap-3">
-            <div className="d-flex justify-content-between">
+            <div className="d-flex">
               <InformationIcon
-                className={'font-size-8 mt-1 me-2'}
+                className={'font-size-8 mt-1 me-2 col-1'}
               ></InformationIcon>
 
               <div className="font-size-12" style={{ width: '150px' }}>
@@ -56,8 +56,8 @@ function Footer() {
         <div className="col">
           <h6 className="text-decoration-underline mb-3">Contact us</h6>
           <div className=" d-flex flex-column gap-3">
-            <div className="d-flex justify-content-between">
-              <PhoneIcon className="font-size-8 mt-1 me-2"></PhoneIcon>
+            <div className="d-flex ">
+              <PhoneIcon className="font-size-8 mt-1 me-2 col-1"></PhoneIcon>
               <div className="font-size-12" style={{ width: '150px' }}>
                 099-999-9999
               </div>
@@ -68,15 +68,15 @@ function Footer() {
           <h6 className="text-decoration-underline mb-3">
             Payment and Delivery
           </h6>
-          <div className=" d-flex flex-column ">
-            <div className="d-flex justify-content-between">
-              <DollarIcon className="font-size-8 mt-1 me-2"></DollarIcon>
+          <div className=" d-flex flex-column gap-2 ">
+            <div className="d-flex ">
+              <DollarIcon className="font-size-8 mt-1 me-2 col-1"></DollarIcon>
               <div className="font-size-12" style={{ width: '150px' }}>
                 bank transfer
               </div>
             </div>
-            <div className="d-flex justify-content-between">
-              <DeliveryIcon className="font-size-12 mt-1 me-2"></DeliveryIcon>
+            <div className="d-flex ">
+              <DeliveryIcon className="font-size-12 mt-1 me-2 col-1"></DeliveryIcon>
               <div className="font-size-12" style={{ width: '150px' }}>
                 Mint tower, 719 Banthat Thong Road, Wang Mai Subdistrict, Pathum
                 Wan District, Bangkok 10330

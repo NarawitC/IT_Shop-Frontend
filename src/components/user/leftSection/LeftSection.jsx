@@ -1,14 +1,19 @@
+import { useEffect } from 'react';
+
 import { useAuthContext } from '../../../contexts/AuthContext';
 import { useUserContext } from '../../../contexts/UserContext';
-
 import { UserIcon, LockIcon, LocationIcon, DollarIcon } from '../../icon/icon';
 import MenuItem from './components/MenuItem';
+
 function LeftSection() {
   const { page, setPage } = useUserContext();
-
   const {
     user: { firstName, lastName },
   } = useAuthContext();
+  useEffect(() => {
+    setPage('Profile');
+  }, []);
+
   return (
     <div className="col-3 bg-light1 px-2 py-3 d-flex flex-column gap-3 h-25">
       <div className="ms-3 font-size-24 font-weight-500">

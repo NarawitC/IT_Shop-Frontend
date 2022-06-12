@@ -5,6 +5,7 @@ import FormYup from '../../layout/form/FormYup';
 import UserProfile from './components/UserProfile';
 import UserPassword from './components/UserPassword';
 import UserAddress from './components/UserAddress';
+import UserMyPurchase from './components/UserMyPurchase';
 
 import { useAuthContext } from '../../../contexts/AuthContext';
 import { useErrorContext } from '../../../contexts/ErrorContext';
@@ -52,25 +53,28 @@ function RightSection() {
     }
   };
   return (
-    <div className="col-9 bg-light1">
-      <FormYup
-        onSubmit={handleEditSubmit}
-        defaultValues={{
-          firstName,
-          lastName,
-          phoneNumber,
-          email,
-          password: '',
-          confirmPassword: '',
-          address,
-          addressDescription: addressDescription ? addressDescription : '',
-        }}
-        schema={schema}
-      >
-        {page === 'Profile' && <UserProfile />}
-        {page === 'Password' && <UserPassword />}
-        {page === 'Address' && <UserAddress />}
-      </FormYup>
+    <div className="col-9 ">
+      {page === 'Profile' || page === 'Password' || page === 'Address' ? (
+        <FormYup
+          onSubmit={handleEditSubmit}
+          defaultValues={{
+            firstName,
+            lastName,
+            phoneNumber,
+            email,
+            password: '',
+            confirmPassword: '',
+            address,
+            addressDescription: addressDescription ? addressDescription : '',
+          }}
+          schema={schema}
+        >
+          {page === 'Profile' && <UserProfile />}
+          {page === 'Password' && <UserPassword />}
+          {page === 'Address' && <UserAddress />}
+        </FormYup>
+      ) : null}
+      {page === 'My purchase' && <UserMyPurchase />}
     </div>
   );
 }
