@@ -2,9 +2,7 @@ import { Link } from 'react-router-dom';
 import DigitWithBahtIcon from '../common/DigitWithBahtIcon';
 function ProductCard({ product }) {
   const { id, name, price = 'xxx', mainPicture, description } = product;
-  const defaultMainPicture =
-    'https://res.cloudinary.com/narawit/image/upload/v1655109981/IT_Shop/Default%20photo/defaultSubPicture_e1uec8.png';
-  const testPic = 'https://picsum.photos/700/700';
+
   const shortDescription =
     description.length > 100
       ? description.substring(0, 100) + '...'
@@ -13,9 +11,10 @@ function ProductCard({ product }) {
     <div className="card p-1 my-2" style={{ width: ' 250px' }}>
       <Link to={`/product/info/${id}`}>
         <img
-          src={`${mainPicture || testPic}`}
+          src={`${mainPicture}`}
           className="card-img-top img-fluid"
           style={{ height: '200px' }}
+          alt="..."
         ></img>
       </Link>
       <div className="px-1 py-1 d-flex flex-column justify-content-between gap-1">

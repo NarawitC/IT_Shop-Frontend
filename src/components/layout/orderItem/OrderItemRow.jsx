@@ -15,7 +15,6 @@ function OrderItemRow({ orderItem, order }) {
   const {
     Product: { price: pricePerUnit, name, mainPicture },
     quantity,
-    orderId,
     productId,
   } = orderItem;
   const itemSubtotal = pricePerUnit * quantity;
@@ -40,6 +39,7 @@ function OrderItemRow({ orderItem, order }) {
             src={`${mainPicture}`}
             className="my-1"
             style={{ width: '100px', height: '80px' }}
+            alt="..."
           ></img>
         </Link>
 
