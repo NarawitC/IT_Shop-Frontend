@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 function ProductPageBreadcrumb({ category, subCategory, product }) {
   return (
-    <div className="d-flex gap-1">
+    <div className="d-flex gap-1 ms-3">
       <Link className="link-text4" to={'/product'}>
-        Product
+        All product
       </Link>
       {category && (
         <Link className="link-text4" to={`/product/category/${category.id}`}>

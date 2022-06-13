@@ -4,6 +4,7 @@ import { getProductByCategoryId } from '../../api/user/product';
 import AllProductCardsLayout from '../../components/layout/product/AllProductCardsLayout';
 import ProductPageBreadcrumb from '../../components/product/ProductPageBreadcrumb';
 import { getCategoryById } from '../../api/user/category';
+import ProductCard from '../../components/product/ProductCard';
 
 function CategoryPage() {
   const { categoryId } = useParams();
@@ -24,11 +25,11 @@ function CategoryPage() {
   }, [categoryId]);
 
   return (
-    <div className="content-default-width mx-auto">
+    <div className="content-default-width mx-auto d-flex flex-column gap-2">
       <ProductPageBreadcrumb category={category}></ProductPageBreadcrumb>
       <AllProductCardsLayout>
         {products.map((product) => {
-          return <div key={product.id}>{product.name}</div>;
+          return <ProductCard key={product.id} product={product}></ProductCard>;
         })}
       </AllProductCardsLayout>
     </div>

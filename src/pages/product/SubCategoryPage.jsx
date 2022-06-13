@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getProductBySubProductId } from '../../api/user/product';
 import { getSubCategoryById } from '../../api/user/subCategory';
 import AllProductCardsLayout from '../../components/layout/product/AllProductCardsLayout';
+import ProductCard from '../../components/product/ProductCard';
 import ProductPageBreadcrumb from '../../components/product/ProductPageBreadcrumb';
 
 function SubCategoryPage() {
@@ -25,14 +26,14 @@ function SubCategoryPage() {
   }, [subCategoryId]);
 
   return (
-    <div className="content-default-width mx-auto">
+    <div className="content-default-width mx-auto d-flex flex-column gap-2">
       <ProductPageBreadcrumb
         category={subCategory.Category}
         subCategory={subCategory}
       ></ProductPageBreadcrumb>
       <AllProductCardsLayout>
         {products.map((product) => {
-          return <div key={product.id}>{product.name}</div>;
+          return <ProductCard key={product.id} product={product}></ProductCard>;
         })}
       </AllProductCardsLayout>
     </div>

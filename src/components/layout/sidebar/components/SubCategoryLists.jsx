@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getSubCategoryByCategoryId } from '../../../../api/user/subCategory';
 
-function SubCategoryLists({ category }) {
+function SubCategoryLists({ categoryId }) {
   // let subCategories;
   // switch (category) {
   //   case 'Notebook':
@@ -20,10 +21,16 @@ function SubCategoryLists({ category }) {
   //   default:
   //     break;
   // }
-  const { SubCategories } = category;
+  const [subCategories, setSubCategories] = useState([]);
   useEffect(() => {
-    SubCategories.reverse();
-  }, []);
+    const fetchSubCategories = async () => {
+      const {
+        data: { subCategories },
+      } = await getSubCategoryByCategoryId(categoryId);
+      setSubCategories(subCategories);
+    };
+    fetchSubCategories();
+  }, [categoryId]);
 
   return (
     <>
@@ -31,9 +38,9 @@ function SubCategoryLists({ category }) {
       <div>
         <ul
           className="collapse"
-          id={`navbarToggleExternalContent${category.id}`}
+          id={`navbarToggleExternalContent${categoryId}`}
         >
-          {SubCategories.map((subCategory, idx) => {
+          {subCategories.map((subCategory, idx) => {
             return (
               <li key={idx}>
                 <Link

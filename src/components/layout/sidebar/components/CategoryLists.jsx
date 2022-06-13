@@ -15,7 +15,6 @@ function CategoryLists() {
     };
     fetchCategories();
   }, []);
-
   return (
     <ul className="px-0">
       <div className="d-flex justify-content-center my-3">
@@ -48,7 +47,10 @@ function CategoryLists() {
                 <ChevronDownIcon style={{ fontSize: '1rem' }}></ChevronDownIcon>
               </button>
             </li>
-            <SubCategoryLists key={idx} category={category}></SubCategoryLists>
+            <SubCategoryLists
+              key={idx}
+              categoryId={category.id}
+            ></SubCategoryLists>
           </div>
         );
       })}

@@ -1,9 +1,9 @@
 import { BahtIcon } from '../icon/icon';
-function DigitWithBahtIcon({ digit }) {
+function DigitWithBahtIcon({ digit, className }) {
   return (
     <div className="d-flex gap-1 justify-content-center">
-      <BahtIcon className={'mt-1'}></BahtIcon>
-      <div>{digit.toLocaleString('en-US')}</div>
+      <BahtIcon className={`m-auto ${className}`}></BahtIcon>
+      <div className={`${className}`}>{digit.toLocaleString('en-US')}</div>
     </div>
   );
 }
