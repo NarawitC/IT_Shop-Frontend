@@ -1,7 +1,7 @@
 import axios from '../../config/axios';
 
 export const getAllProductInfo = async () => {
-  return await axios.get(`/product/allProduct}`);
+  return await axios.get(`/product/allProduct`);
 };
 export const getProductByCategoryId = async (categoryId) => {
   return await axios.get(`/product/category/${categoryId}`);
