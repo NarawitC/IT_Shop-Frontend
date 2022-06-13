@@ -7,7 +7,7 @@ function ProductPageBreadcrumb({ category, subCategory, product }) {
       </Link>
       {category && (
         <Link className="link-text4" to={`/product/category/${category.id}`}>
-          &gt; {category.name}
+          / {category.name}
         </Link>
       )}
       {subCategory && (
@@ -15,12 +15,12 @@ function ProductPageBreadcrumb({ category, subCategory, product }) {
           className="link-text4"
           to={`/product/subCategory/${subCategory.id}`}
         >
-          &gt; {subCategory.name}
+          / {subCategory.name}
         </Link>
       )}
       {product && (
         <Link className="link-text4" to={`/product/info/${product.id}`}>
-          &gt; {product.name}
+          / {product.name}
         </Link>
       )}
     </div>
