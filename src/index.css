@@ -17,6 +17,7 @@
 }
 .link-text1:hover {
   color: #ff6130 !important;
+  text-decoration: underline;
 }
 .link-text1:visited {
   color: #ffffff;
@@ -31,6 +32,7 @@
 }
 .link-text2:hover {
   color: #ff6130 !important;
+  text-decoration: underline;
 }
 .link-text2:visited {
   color: #000000;
@@ -45,6 +47,7 @@
 }
 .link-text3:hover {
   color: #ff6130 !important;
+  text-decoration: underline;
 }
 .link-text3:visited {
   color: #0057e4;
@@ -59,6 +62,7 @@
 }
 .link-text4:hover {
   color: #ff6130 !important;
+  text-decoration: underline;
 }
 .link-text4:visited {
   color: #7e7f83;
