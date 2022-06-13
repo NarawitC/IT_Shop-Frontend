@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function SubCategoryLists({ category }) {
@@ -20,7 +21,10 @@ function SubCategoryLists({ category }) {
   //     break;
   // }
   const { SubCategories } = category;
-  SubCategories.reverse();
+  useEffect(() => {
+    SubCategories.reverse();
+  }, []);
+
   return (
     <>
       <div className=""></div>

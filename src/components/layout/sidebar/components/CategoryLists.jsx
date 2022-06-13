@@ -22,7 +22,7 @@ function CategoryLists() {
         <Link
           className="link-text2"
           style={{ textDecoration: 'underline' }}
-          to="/"
+          to="/product"
         >
           All Product
         </Link>
