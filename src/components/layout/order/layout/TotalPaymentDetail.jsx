@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-import { checkLocation } from '../../header/services';
+import { checkLocation } from '../../../../services/checkLocation';
 import Button from '../../../../components/button/Button';
 
 import DigitWithBahtIcon from '../../../common/DigitWithBahtIcon';

@@ -32,7 +32,10 @@ function SubCategoryLists({ category }) {
           {SubCategories.map((subCategory, idx) => {
             return (
               <li key={idx}>
-                <Link className="link-text2" to={`/${category}/${subCategory}`}>
+                <Link
+                  className="link-text2"
+                  to={`/product/subCategory/${subCategory.id}`}
+                >
                   {subCategory.name}
                 </Link>
               </li>

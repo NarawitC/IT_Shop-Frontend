@@ -31,7 +31,10 @@ function CategoryLists() {
         return (
           <div key={idx} className="py-2">
             <li className="d-flex justify-content-between">
-              <Link className="link-text2" to={'/product/' + category.name}>
+              <Link
+                className="link-text2"
+                to={'/product/category/' + category.id}
+              >
                 {category.name}
               </Link>
               <button

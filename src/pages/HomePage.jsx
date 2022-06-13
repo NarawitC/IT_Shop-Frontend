@@ -1,4 +1,4 @@
 function HomePage() {
-  return <div>Home Page</div>;
+  return <div className="content-default-width mx-auto">Home Page</div>;
 }
 export default HomePage;

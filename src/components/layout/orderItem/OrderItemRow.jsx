@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import SquareCheckBox from '../../common/SquareCheckBox';
 import DigitWithBahtIcon from '../../common/DigitWithBahtIcon';
 import EyeButton from '../../common/EyeButton';
-import { checkLocation } from '../header/services';
+import { checkLocation } from '../../../services/checkLocation';
 import { useUserContext } from '../../../contexts/UserContext';
 
 function OrderItemRow({ orderItem, order }) {

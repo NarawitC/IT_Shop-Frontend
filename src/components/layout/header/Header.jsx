@@ -2,7 +2,7 @@ import HeaderIdentification from './components/HeaderIdentification';
 import SearchBar from './components/SearchBar';
 import CartAndProfile from './components/CartAndProfile';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { checkLocation } from './services';
+import { checkLocation } from '../../../services/checkLocation';
 import { useAuthContext } from '../../../contexts/AuthContext';
 import { LogOutIcon } from '../../icon/icon';
 

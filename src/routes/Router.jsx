@@ -6,7 +6,9 @@ import SignInPage from '../pages/auth/SignInPage';
 import SignUpPage from '../pages/auth/SignUpPage';
 import UserPage from '../pages/user/UserPage';
 import HomePage from '../pages/HomePage';
-
+import AllProductPage from '../pages/product/AllProductPage';
+import CategoryPage from '../pages/product/CategoryPage';
+import SubCategoryPage from '../pages/product/SubCategoryPage';
 function Router() {
   const { user } = useAuthContext();
   return (
@@ -16,6 +18,15 @@ function Router() {
           <Route path="/" element={<HeaderAndFooter></HeaderAndFooter>}>
             <Route path="" element={<HomePage></HomePage>} />
             <Route path="user" element={<UserPage></UserPage>}></Route>
+            <Route path="product" element={<AllProductPage></AllProductPage>} />
+            <Route
+              path="product/category/:categoryId"
+              element={<CategoryPage></CategoryPage>}
+            />
+            <Route
+              path="product/subCategory/:subCategoryId"
+              element={<SubCategoryPage></SubCategoryPage>}
+            />
           </Route>
           <Route path="*" element={<Navigate to="/"></Navigate>}></Route>
         </>
