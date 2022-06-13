@@ -33,7 +33,7 @@ function Router() {
               element={<SubCategoryPage></SubCategoryPage>}
             ></Route>
             <Route
-              path="/product/:productId"
+              path="/product/info/:productId"
               element={<ProductPage></ProductPage>}
             ></Route>
           </Route>

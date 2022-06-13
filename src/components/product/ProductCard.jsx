@@ -11,7 +11,7 @@ function ProductCard({ product }) {
       : description;
   return (
     <div className="card p-1 my-2" style={{ width: ' 250px' }}>
-      <Link to={`/product/${id}`}>
+      <Link to={`/product/info/${id}`}>
         <img
           src={`${mainPicture || testPic}`}
           className="card-img-top img-fluid"

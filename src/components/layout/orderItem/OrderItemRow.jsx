@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import SquareCheckBox from '../../common/SquareCheckBox';
 import DigitWithBahtIcon from '../../common/DigitWithBahtIcon';
@@ -13,9 +13,10 @@ function OrderItemRow({ orderItem, order }) {
   const { setSelectedPurchasedOrder, selectedPurchasedOrder } =
     useUserContext();
   const {
-    Product: { price: pricePerUnit, name, id: productId },
+    Product: { price: pricePerUnit, name, mainPicture },
     quantity,
     orderId,
+    productId,
   } = orderItem;
   const itemSubtotal = pricePerUnit * quantity;
   const handleEyeBtnClick = () => {
@@ -33,10 +34,15 @@ function OrderItemRow({ orderItem, order }) {
             <SquareCheckBox className={'col-5'}></SquareCheckBox>
           )}
         </div>
-        <div
-          style={{ width: '100px', height: '80px' }}
-          className={'border border-dark my-1'}
-        ></div>
+
+        <Link to={`/product/info/${productId}`}>
+          <img
+            src={`${mainPicture}`}
+            className="my-1"
+            style={{ width: '100px', height: '80px' }}
+          ></img>
+        </Link>
+
         <div>{name}</div>
       </div>
       <div className="col-7 d-flex justify-content-between gap-1 align-items-center">
