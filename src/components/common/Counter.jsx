@@ -8,10 +8,10 @@ function Counter({ onClickDecrease, onClickIncrease, state = 1, maxQuantity }) {
       }}
     >
       <button
-        disabled={!!(state === 1)}
+        disabled={!!(state <= 1)}
         style={{ width: '30px' }}
         onClick={onClickDecrease}
-        className="font-weight-500 font-size-20"
+        className="font-weight-500 font-size-20 "
       >
         -
       </button>
@@ -25,7 +25,7 @@ function Counter({ onClickDecrease, onClickIncrease, state = 1, maxQuantity }) {
         {state}
       </div>
       <button
-        disabled={!!(state === maxQuantity)}
+        disabled={!!(state >= maxQuantity)}
         style={{ width: '30px' }}
         onClick={onClickIncrease}
         className="font-weight-500 font-size-20 "

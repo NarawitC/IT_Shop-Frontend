@@ -87,6 +87,9 @@
 .font-size-20 {
   font-size: 20px;
 }
+.font-size-14 {
+  font-size: 14px;
+}
 .font-size-12 {
   font-size: 12px;
 }
@@ -213,15 +216,20 @@
   color: #ffffff;
   background-color: #0057e4;
 }
-/* ----------------------------------------- horizontal rule ----------------------------------------- */
+/* -----------------------------------------div horizontal rule ----------------------------------------- */
 .hr-gray {
   background-color: #8d8f9a;
   padding: 1px 50%;
+}
+.hr-gray-sm {
+  background-color: #8d8f9a;
+  padding: 0.5px 50%;
 }
 .hr-primary {
   background-color: #0057e4;
   padding: 1px 50%;
 }
+
 /* ----------------------------------------- font-color ----------------------------------------- */
 .font-text1 {
   color: #000000;

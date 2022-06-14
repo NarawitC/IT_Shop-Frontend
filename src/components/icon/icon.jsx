@@ -93,3 +93,16 @@ export const EyeIcon = ({ className, style }) => {
 export const CheckIcon = ({ className, style }) => {
   return <i className={`fa-solid fa-check ${className}`} style={style}></i>;
 };
+export const ClockIcon = ({ className, style }) => {
+  return <i className={`fa-solid fa-clock ${className}`} style={style}></i>;
+};
+export const ShieldIcon = ({ className, style }) => {
+  return (
+    <i className={`fa-solid fa-shield-halved ${className}`} style={style}></i>
+  );
+};
+export const CertificateIcon = ({ className, style }) => {
+  return (
+    <i className={`fa-solid fa-certificate ${className}`} style={style}></i>
+  );
+};

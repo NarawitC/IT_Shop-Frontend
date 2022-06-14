@@ -9,7 +9,7 @@ import HomePage from '../pages/HomePage';
 import AllProductPage from '../pages/product/AllProductPage';
 import CategoryPage from '../pages/product/CategoryPage';
 import SubCategoryPage from '../pages/product/SubCategoryPage';
-import ProductPage from '../pages/product/ProductPage';
+import ProductInfoPage from '../pages/product/ProductInfoPage';
 
 function Router() {
   const { user } = useAuthContext();
@@ -34,7 +34,7 @@ function Router() {
             ></Route>
             <Route
               path="/product/info/:productId"
-              element={<ProductPage></ProductPage>}
+              element={<ProductInfoPage></ProductInfoPage>}
             ></Route>
           </Route>
           <Route path="/" element={<Navigate to="/"></Navigate>}></Route>

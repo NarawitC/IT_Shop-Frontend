@@ -5,9 +5,6 @@ import { getAllProductInfo } from '../../api/user/product';
 import AllProductCardsLayout from '../../components/layout/product/AllProductCardsLayout';
 import ProductPageBreadcrumb from '../../components/product/ProductPageBreadcrumb';
 import ProductCard from '../../components/product/ProductCard';
-import CategoryPage from './CategoryPage';
-import SubCategoryPage from './SubCategoryPage';
-import ProductPage from './ProductPage';
 
 function AllProductPage() {
   const [products, setProducts] = useState([]);
