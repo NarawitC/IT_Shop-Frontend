@@ -9,5 +9,5 @@ export const updateUserInfo = async (data) => {
 };
 
 export const getUserPurchasedOrders = async () => {
-  return await axios.get('/user/purchased/orders');
+  return axios.get('/user/purchased/orders');
 };
