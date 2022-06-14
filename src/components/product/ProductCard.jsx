@@ -3,10 +3,14 @@ import DigitWithBahtIcon from '../common/DigitWithBahtIcon';
 function ProductCard({ product }) {
   const { id, name, price = 'xxx', mainPicture, description } = product;
 
-  const shortDescription =
-    description.length > 100
-      ? description.substring(0, 100) + '...'
-      : description;
+  let shortDescription;
+  if (description) {
+    shortDescription =
+      description.length > 100
+        ? description.substring(0, 100) + '...'
+        : description;
+  }
+
   return (
     <div className="card p-1 my-2" style={{ width: ' 250px' }}>
       <Link to={`/product/info/${id}`}>
@@ -19,12 +23,15 @@ function ProductCard({ product }) {
       </Link>
       <div className="px-1 py-1 d-flex flex-column justify-content-between gap-1">
         <Link
+          style={{ height: '30px' }}
           to={`/product/${id}`}
-          className="link-text2  font-weight-500 font-size-20"
+          className="link-text2  font-weight-500 font-size-20 my-1"
         >
           {name}
         </Link>
-        <div className="font-size-12">{shortDescription}</div>
+        <div style={{ height: '60px' }} className="font-size-12">
+          {shortDescription}
+        </div>
         <div className=" d-flex justify-content-end me-3">
           <DigitWithBahtIcon
             className=" font-text-primary"
