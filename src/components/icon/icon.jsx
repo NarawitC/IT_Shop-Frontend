@@ -109,3 +109,8 @@ export const CertificateIcon = ({ className, style }) => {
 export const TrashIcon = ({ className, style }) => {
   return <i className={`fa-solid fa-trash-can ${className}`} style={style}></i>;
 };
+export const ActionCheckIcon = ({ className, style }) => {
+  return (
+    <i className={`fa-solid fa-calendar-check ${className}`} style={style}></i>
+  );
+};

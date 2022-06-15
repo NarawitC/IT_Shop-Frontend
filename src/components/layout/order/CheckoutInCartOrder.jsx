@@ -15,8 +15,7 @@ function CheckoutInCartOrder() {
     setIsSelectAllInCartItems,
     selectedInCartItems,
   } = useOrderContext();
-  const [checkOutOrderItems, setCheckOutOrderItems] =
-    useState(inCartOrderItems);
+
   const isSelectAllButton = true;
   const handleCheckBoxWhenNotChecked = () => {
     setIsSelectAllInCartItems((prev) => !prev);
@@ -32,7 +31,7 @@ function CheckoutInCartOrder() {
       },
     } = await createOrderAndDeleteInCartOrder();
     if (isSelectAllInCartItems) {
-      //| inCartOrderItems =[{productObj:inputQuantity}]
+      //| inCartOrderItems =[{productObj,inputQuantity}]
       inCartOrderItems.forEach(async (item) => {
         await createOrderItemByOrderId({
           orderId,
@@ -81,7 +80,7 @@ function CheckoutInCartOrder() {
         <div className="font-text-secondary d-flex gap-2 font-size-20 col-6 align-items-center justify-content-center">
           <div>Store price: </div>
           <DigitWithBahtIcon
-            digit={checkOutOrderItems.reduce((acc, item) => {
+            digit={inCartOrderItems.reduce((acc, item) => {
               return acc + item.inputQuantity * item.product.price;
             }, 0)}
           />

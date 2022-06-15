@@ -61,7 +61,7 @@ function Router() {
               element={<OrderCompletedPage></OrderCompletedPage>}
             ></Route>
           </Route>
-          <Route path="/" element={<Navigate to="/"></Navigate>}></Route>
+          <Route path="/" element={<Navigate to=""></Navigate>}></Route>
           <Route path="*" element={<Navigate to="/"></Navigate>}></Route>
         </>
       ) : (
