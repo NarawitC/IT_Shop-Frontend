@@ -70,6 +70,21 @@
 .link-text4:active {
   color: #ff6130;
 }
+
+.link-text5 {
+  color: #7e7f83;
+  text-decoration: none;
+}
+.link-text5:hover {
+  color: #ff0000 !important;
+  text-decoration: underline;
+}
+.link-text5:visited {
+  color: #7e7f83;
+}
+.link-text5:active {
+  color: #ff0000;
+}
 /* ----------------------------------------- font-weight ----------------------------------------- */
 .font-weight-300 {
   font-weight: 300;
@@ -183,6 +198,19 @@
 }
 .btn-green-i:hover {
   color: #ff6130 !important;
+}
+.btn-red-i {
+  color: #d63a3a;
+  background-color: Transparent;
+}
+.btn-red-i:focus {
+  color: #d63a3a !important;
+}
+.btn-red-i:visited {
+  color: #d63a3a !important;
+}
+.btn-red-i:hover {
+  color: #ff0000 !important;
 }
 
 .btn-user-link {

@@ -14,22 +14,26 @@ function OrderTopicSection({
       style={{ backgroundColor: backgroundColor ? backgroundColor : '#ffffff' }}
     >
       <div
-        className="col-5 ps-5 align-items-center font-size-20 font-weight-500"
-        style={{ textColor }}
+        className="col-5 ps-5 align-items-center font-size-20 font-weight-500 ms-2"
+        style={{ color: textColor }}
       >
         {textCol1}
       </div>
       <div className="col-7 d-flex justify-content-between gap-1 align-items-center">
-        <div className="col-3 text-center" style={{ textColor }}>
+        <div className="col-3 text-center" style={{ color: textColor }}>
           {textCol2}
         </div>
-        <div className="col-2 text-center" style={{ textColor }}>
+        <div className="col-2 text-center" style={{ color: textColor }}>
           {textCol3}
         </div>
-        <div className="col-3 text-center" style={{ textColor }}>
+        <div className="col-3 text-center" style={{ color: textColor }}>
           {textCol4}
         </div>
-        {textCol5 ? <div className="col-4 text-center">{textCol5}</div> : null}
+        {textCol5 ? (
+          <div className="flex-fill text-center" style={{ color: textColor }}>
+            {textCol5}
+          </div>
+        ) : null}
       </div>
       {children}
     </div>

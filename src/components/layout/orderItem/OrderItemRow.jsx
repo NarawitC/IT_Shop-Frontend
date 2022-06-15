@@ -27,7 +27,7 @@ function OrderItemRow({ orderItem, order }) {
   };
   return (
     <div className="d-flex ">
-      <div className="col-5 align-items-center d-flex gap-1 ">
+      <div className="col-5 align-items-center d-flex gap-3 ms-2">
         <div className="col-1 d-flex align-items-center">
           {isUserPage ? null : (
             <SquareCheckBox className={'col-5'}></SquareCheckBox>
@@ -37,7 +37,7 @@ function OrderItemRow({ orderItem, order }) {
         <Link to={`/product/info/${productId}`}>
           <img
             src={`${mainPicture}`}
-            className="my-1"
+            className="my-1 "
             style={{ width: '100px', height: '80px' }}
             alt="..."
           ></img>
@@ -53,7 +53,7 @@ function OrderItemRow({ orderItem, order }) {
         <div className="col-3 align-items-center text-center">
           <DigitWithBahtIcon digit={itemSubtotal} />
         </div>
-        <div className="col-4 align-items-center text-center">
+        <div className="flex-fill align-items-center text-center">
           {isUserPage ? (
             <EyeButton onClick={handleEyeBtnClick}></EyeButton>
           ) : null}

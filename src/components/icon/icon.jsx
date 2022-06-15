@@ -106,3 +106,6 @@ export const CertificateIcon = ({ className, style }) => {
     <i className={`fa-solid fa-certificate ${className}`} style={style}></i>
   );
 };
+export const TrashIcon = ({ className, style }) => {
+  return <i className={`fa-solid fa-trash-can ${className}`} style={style}></i>;
+};

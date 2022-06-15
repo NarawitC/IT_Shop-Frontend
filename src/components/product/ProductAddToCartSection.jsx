@@ -14,6 +14,7 @@ function ProductAddToCartSection({ product }) {
   };
 
   let inCartOrderItemIdx;
+  //| Check product in inCartOrderItems by product id
   function findInCartOrder(productId) {
     const inCartOrderItem = inCartOrderItems.find((item, idx) => {
       if (item.product.id === productId) {

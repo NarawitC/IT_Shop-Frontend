@@ -5,6 +5,8 @@ import { getInCartOrder } from '../api/user/order';
 const OrderContext = createContext();
 const OrderContextProvider = ({ children }) => {
   const [inCartOrderItems, setInCartOrderItems] = useState([]);
+  const [isSelectAllInCartItems, setIsSelectAllInCartItems] = useState(false);
+  const [selectedInCartItems, setSelectedInCartItems] = useState([]);
   useEffect(() => {
     const fetchInCartOrder = async () => {
       const {
@@ -26,7 +28,16 @@ const OrderContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <OrderContext.Provider value={{ inCartOrderItems, setInCartOrderItems }}>
+    <OrderContext.Provider
+      value={{
+        inCartOrderItems,
+        setInCartOrderItems,
+        isSelectAllInCartItems,
+        setIsSelectAllInCartItems,
+        selectedInCartItems,
+        setSelectedInCartItems,
+      }}
+    >
       {children}
     </OrderContext.Provider>
   );
