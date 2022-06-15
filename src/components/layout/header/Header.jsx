@@ -6,7 +6,6 @@ import { checkLocation } from '../../../services/checkLocation';
 import { useAuthContext } from '../../../contexts/AuthContext';
 import { LogOutIcon } from '../../icon/icon';
 
-
 function Header() {
   const { signOut } = useAuthContext();
   const location = useLocation();
@@ -16,16 +15,13 @@ function Header() {
     signOut();
   };
 
-
   return (
     <>
       <nav className="navbar bg-primary1 font-text3 py-0">
         <div className="content-default-width d-flex justify-content-between mx-auto align-items-center">
           <HeaderIdentification pageStatus={pageStatus} />
           {isAuthPage || isAdminPage || isUserPage ? null : <SearchBar />}
-          {isAuthPage || isAdminPage || isOrderPage || isUserPage ? null : (
-            <CartAndProfile />
-          )}
+          {isAuthPage || isAdminPage || isUserPage ? null : <CartAndProfile />}
           {isAuthPage ? null : (
             <button className="btn-white-i" onClick={handleLogoutBtn}>
               <LogOutIcon></LogOutIcon>
