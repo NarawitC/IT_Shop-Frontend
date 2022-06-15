@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '../button/Button';
 import Counter from '../common/Counter';
 import { useOrderContext } from '../../contexts/OrderContext';
@@ -12,10 +12,34 @@ function ProductAddToCartSection({ product }) {
       return [...prev, { product, inputQuantity }];
     });
   };
+
+  let inCartOrderItemIdx;
   function findInCartOrder(productId) {
-    return inCartOrderItems.some((item) => item.product.id === productId);
+    const inCartOrderItem = inCartOrderItems.find((item, idx) => {
+      if (item.product.id === productId) {
+        inCartOrderItemIdx = idx;
+        return item;
+      }
+    });
+    return inCartOrderItem;
   }
-  const isProductInCart = findInCartOrder(id);
+
+  //| update inCartOrderItems inputQuantity
+  function handleUpdateInCartButton() {
+    setInCartOrderItems((prev) => {
+      prev[inCartOrderItemIdx].inputQuantity = inputQuantity;
+      console.log(prev);
+      return prev;
+    });
+  }
+
+  const productInCart = findInCartOrder(id);
+  //| fetch inputQuantity inCartOrderItem
+  useEffect(() => {
+    if (productInCart) {
+      setInputQuantity(productInCart.inputQuantity);
+    }
+  }, [productInCart]);
   return (
     <div className="bg-light1 px-5 py-3 d-flex flex-column gap-3">
       <div className="font-text-primary font-weight-500 font-size-20">
@@ -33,7 +57,14 @@ function ProductAddToCartSection({ product }) {
         state={inputQuantity}
       ></Counter>
       <hr />
-      {isProductInCart ? null : (
+      {productInCart ? (
+        <Button
+          onClick={handleUpdateInCartButton}
+          className={'my-btn-primary '}
+        >
+          Update In-Cart product
+        </Button>
+      ) : (
         <Button onClick={handleAddToCartButton} className={'btn btn-primary'}>
           Add to cart
         </Button>
