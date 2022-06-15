@@ -10,6 +10,7 @@ import AllProductPage from '../pages/product/AllProductPage';
 import CategoryPage from '../pages/product/CategoryPage';
 import SubCategoryPage from '../pages/product/SubCategoryPage';
 import ProductInfoPage from '../pages/product/ProductInfoPage';
+import SearchPage from '../pages/product/SearchPage';
 
 function Router() {
   const { user } = useAuthContext();
@@ -20,10 +21,7 @@ function Router() {
           <Route path="/" element={<HeaderAndFooter></HeaderAndFooter>}>
             <Route path="" element={<HomePage></HomePage>} />
             <Route path="user" element={<UserPage></UserPage>}></Route>
-            <Route
-              path="/product"
-              element={<AllProductPage></AllProductPage>}
-            ></Route>
+            <Route path="product" element={<AllProductPage />}></Route>
             <Route
               path="/product/category/:categoryId"
               element={<CategoryPage></CategoryPage>}
@@ -31,6 +29,10 @@ function Router() {
             <Route
               path="/product/subCategory/:subCategoryId"
               element={<SubCategoryPage></SubCategoryPage>}
+            ></Route>
+            <Route
+              path="/product/searchText/:searchText"
+              element={<SearchPage></SearchPage>}
             ></Route>
             <Route
               path="/product/info/:productId"

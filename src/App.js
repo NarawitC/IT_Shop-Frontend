@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import Router from './routes/Router';
 
 import { useErrorContext } from './contexts/ErrorContext';
-import AuthContextProvider from './contexts/AuthContext';
+
 import UserContextProvider from './contexts/UserContext';
 import OrderContextProvider from './contexts/OrderContext';
 
@@ -18,28 +18,26 @@ function App() {
     }
   }, [error]);
   return (
-    <AuthContextProvider>
-      <UserContextProvider>
-        <OrderContextProvider>
-          <Router></Router>
-          <div className={`toast-container fixed-bottom pb-5 mx-auto`}>
-            <div
-              className="toast align-items-center text-white bg-danger border-0"
-              ref={toastEl}
-            >
-              <div className="d-flex">
-                <div className="toast-body">{error}</div>
-                <button
-                  type="button"
-                  className="btn-close btn-close-white me-2 m-auto"
-                  data-bs-dismiss="toast"
-                ></button>
-              </div>
+    <UserContextProvider>
+      <OrderContextProvider>
+        <Router/>
+        <div className={`toast-container fixed-bottom pb-5 mx-auto`}>
+          <div
+            className="toast align-items-center text-white bg-danger border-0"
+            ref={toastEl}
+          >
+            <div className="d-flex">
+              <div className="toast-body">{error}</div>
+              <button
+                type="button"
+                className="btn-close btn-close-white me-2 m-auto"
+                data-bs-dismiss="toast"
+              ></button>
             </div>
           </div>
-        </OrderContextProvider>
-      </UserContextProvider>
-    </AuthContextProvider>
+        </div>
+      </OrderContextProvider>
+    </UserContextProvider>
   );
 }
 

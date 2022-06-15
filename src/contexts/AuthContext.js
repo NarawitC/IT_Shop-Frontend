@@ -13,7 +13,7 @@ import { useErrorContext } from './ErrorContext';
 const AuthContext = createContext();
 
 function AuthContextProvider({ children }) {
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const { setError } = useErrorContext();
 
