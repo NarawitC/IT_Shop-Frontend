@@ -6,11 +6,17 @@ import SignInPage from '../pages/auth/SignInPage';
 import SignUpPage from '../pages/auth/SignUpPage';
 import UserPage from '../pages/user/UserPage';
 import HomePage from '../pages/HomePage';
+
 import AllProductPage from '../pages/product/AllProductPage';
 import CategoryPage from '../pages/product/CategoryPage';
 import SubCategoryPage from '../pages/product/SubCategoryPage';
 import ProductInfoPage from '../pages/product/ProductInfoPage';
 import SearchPage from '../pages/product/SearchPage';
+
+import OrderCheckoutPage from '../pages/order/OrderCheckoutPage';
+import OrderPlaceOrderPage from '../pages/order/OrderPlaceOrderPage';
+import OrderPaymentPage from '../pages/order/OrderPaymentPage';
+import OrderCompletedPage from '../pages/order/OrderCompletedPage';
 
 function Router() {
   const { user } = useAuthContext();
@@ -37,6 +43,22 @@ function Router() {
             <Route
               path="/product/info/:productId"
               element={<ProductInfoPage></ProductInfoPage>}
+            ></Route>
+            <Route
+              path="/order/checkout"
+              element={<OrderCheckoutPage></OrderCheckoutPage>}
+            ></Route>
+            <Route
+              path="/order/placeOrder"
+              element={<OrderPlaceOrderPage></OrderPlaceOrderPage>}
+            ></Route>
+            <Route
+              path="/order/payment"
+              element={<OrderPaymentPage></OrderPaymentPage>}
+            ></Route>
+            <Route
+              path="/order/completed"
+              element={<OrderCompletedPage></OrderCompletedPage>}
             ></Route>
           </Route>
           <Route path="/" element={<Navigate to="/"></Navigate>}></Route>

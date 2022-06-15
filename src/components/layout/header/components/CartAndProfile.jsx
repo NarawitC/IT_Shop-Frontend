@@ -6,7 +6,10 @@ function CartAndProfile() {
   const navigate = useNavigate();
   return (
     <div className="d-flex justify-content-between" style={{ width: '5rem' }}>
-      <button className="btn-white-i" onClick={() => navigate('/')}>
+      <button
+        className="btn-white-i"
+        onClick={() => navigate('/order/checkout')}
+      >
         <ShoppingCartIcon></ShoppingCartIcon>
       </button>
       <button className="btn-white-i" onClick={() => navigate('/user')}>
