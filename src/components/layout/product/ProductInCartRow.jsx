@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { checkLocation } from '../../../services/checkLocation';
 import DigitWithBahtIcon from '../../common/DigitWithBahtIcon';
@@ -14,7 +14,6 @@ function ProductInCartRow({ idx }) {
     selectedInCartItems,
     setSelectedInCartItems,
   } = useOrderContext();
-  const navigate = useNavigate();
   const location = useLocation();
   const { isOrderCheckoutPage } = checkLocation(location.pathname);
   const {
@@ -30,17 +29,17 @@ function ProductInCartRow({ idx }) {
   const itemSubtotal = pricePerUnit * inputQuantity;
 
   const handleCheckBoxWhenNotChecked = () => {
-    setSelectedInCartItems([...selectedInCartItems, inCartOrderItems[idx]]);
+    const newInCartOrderItems = { ...inCartOrderItems[idx] };
+    setSelectedInCartItems([...selectedInCartItems, newInCartOrderItems]);
   };
-
   const handleCheckBoxWhenChecked = () => {
     const arr = selectedInCartItems.filter(
       (item) => item.product.id !== inCartOrderItems[idx].product.id
     );
     setSelectedInCartItems(arr);
   };
+  
   const handleIncreaseCounter = () => {
-    console.log(selectedInCartItems);
     const arr = [...inCartOrderItems];
     arr.map((item) => {
       if (item.product.id === productId) {
@@ -51,6 +50,12 @@ function ProductInCartRow({ idx }) {
     setInCartOrderItems(arr);
     console.log(selectedInCartItems);
     const newSelectedInCartItems = [...selectedInCartItems];
+    newSelectedInCartItems.map((item) => {
+      if (item.product.id === productId) {
+        item.inputQuantity += 1;
+      }
+      return item;
+    });
     setSelectedInCartItems(newSelectedInCartItems);
   };
 
@@ -65,14 +70,30 @@ function ProductInCartRow({ idx }) {
 
     setInCartOrderItems(arr);
     const newSelectedInCartItems = [...selectedInCartItems];
+    newSelectedInCartItems.map((item) => {
+      if (item.product.id === productId) {
+        item.inputQuantity -= 1;
+      }
+      return item;
+    });
     setSelectedInCartItems(newSelectedInCartItems);
   };
   const handleDeleteButton = () => {
     const arr = [...inCartOrderItems];
-    arr.splice(idx, 1);
+    arr.filter((item) => {
+      if (item.product.id !== productId) {
+        return item;
+      }
+      return item;
+    });
     setInCartOrderItems(arr);
     const newSelectedInCartItems = [...selectedInCartItems];
-    newSelectedInCartItems.splice(idx, 1);
+    newSelectedInCartItems.filter((item) => {
+      if (item.product.id !== productId) {
+        return item;
+      }
+      return item;
+    });
     setSelectedInCartItems(newSelectedInCartItems);
   };
 
