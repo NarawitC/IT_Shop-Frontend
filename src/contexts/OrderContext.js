@@ -7,6 +7,8 @@ const OrderContextProvider = ({ children }) => {
   const [inCartOrderItems, setInCartOrderItems] = useState([]);
   const [isSelectAllInCartItems, setIsSelectAllInCartItems] = useState(false);
   const [selectedInCartItems, setSelectedInCartItems] = useState([]);
+  const [allProductPrice, setAllProductPrice] = useState(0);
+  const [deliveryPrice, setDeliveryPrice] = useState(0);
   useEffect(() => {
     const fetchInCartOrder = async () => {
       const {
@@ -36,6 +38,10 @@ const OrderContextProvider = ({ children }) => {
         setIsSelectAllInCartItems,
         selectedInCartItems,
         setSelectedInCartItems,
+        allProductPrice,
+        setAllProductPrice,
+        deliveryPrice,
+        setDeliveryPrice,
       }}
     >
       {children}

@@ -1,11 +1,18 @@
 import { useAuthContext } from '../../../contexts/AuthContext';
 import { LocationIcon } from '../../icon/icon';
 import AddressHr from './components/AddressHr';
-function AddressDetail({ selectedPurchasedOrder }) {
+function AddressDetail({ selectedPurchasedOrder, selectedInCartOrder }) {
   const {
-    user: { phoneNumber, firstName, lastName },
+    user: { phoneNumber, firstName, lastName, address },
   } = useAuthContext();
-  const { deliveryAddress } = selectedPurchasedOrder;
+  let deliveryAddress;
+  if (selectedInCartOrder) {
+    deliveryAddress = address;
+  }
+  if (selectedPurchasedOrder) {
+    deliveryAddress = selectedPurchasedOrder.deliveryAddress;
+  }
+
   return (
     <div className="bg-light1 d-flex flex-column gap-4 justify-content-between pb-4 ">
       <AddressHr></AddressHr>

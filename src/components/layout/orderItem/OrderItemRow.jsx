@@ -9,7 +9,7 @@ import { useUserContext } from '../../../contexts/UserContext';
 function OrderItemRow({ orderItem, order }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const { isUserPage } = checkLocation(location.pathname);
+  const { isOrderCheckoutPage, isUserPage } = checkLocation(location.pathname);
   const { setSelectedPurchasedOrder, selectedPurchasedOrder } =
     useUserContext();
   const {
@@ -29,9 +29,9 @@ function OrderItemRow({ orderItem, order }) {
     <div className="d-flex ">
       <div className="col-5 align-items-center d-flex gap-3 ms-2">
         <div className="col-1 d-flex align-items-center">
-          {isUserPage ? null : (
+          {isOrderCheckoutPage ? (
             <SquareCheckBox className={'col-5'}></SquareCheckBox>
-          )}
+          ) : null}
         </div>
 
         <Link to={`/product/info/${productId}`}>
@@ -54,9 +54,7 @@ function OrderItemRow({ orderItem, order }) {
           <DigitWithBahtIcon digit={itemSubtotal} />
         </div>
         <div className="flex-fill align-items-center text-center">
-          {isUserPage ? (
-            <EyeButton onClick={handleEyeBtnClick}></EyeButton>
-          ) : null}
+          <EyeButton onClick={handleEyeBtnClick}></EyeButton>
         </div>
       </div>
     </div>

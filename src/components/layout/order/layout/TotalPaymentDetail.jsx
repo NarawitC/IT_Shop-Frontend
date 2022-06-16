@@ -2,10 +2,28 @@ import { useLocation } from 'react-router-dom';
 
 import { checkLocation } from '../../../../services/checkLocation';
 import Button from '../../../../components/button/Button';
-
+import { calculateDeliveryPrice } from '../../../../services/calculateDeliveryPrice';
+import { useOrderContext } from '../../../../contexts/OrderContext';
 import DigitWithBahtIcon from '../../../common/DigitWithBahtIcon';
+import { useEffect } from 'react';
 function TotalPaymentDetail({ buttonText, onClick, order }) {
-  const { id, productPrice, deliveryPrice } = order;
+  const { allProductPrice, deliveryPrice, setDeliveryPrice } =
+    useOrderContext();
+  const { id } = order;
+  let { productPrice } = order;
+  if (productPrice === 0) {
+    productPrice = allProductPrice;
+  }
+  useEffect(() => {
+    if (order.deliveryPrice === null) {
+      if (allProductPrice < 1000) {
+        setDeliveryPrice(calculateDeliveryPrice());
+      } else {
+        setDeliveryPrice(0);
+      }
+    }
+  }, [allProductPrice, order.deliveryPrice, setDeliveryPrice]);
+
   const location = useLocation();
   const { isUserPage } = checkLocation(location.pathname);
   return (
@@ -33,12 +51,12 @@ function TotalPaymentDetail({ buttonText, onClick, order }) {
             ></DigitWithBahtIcon>
           </div>
         </div>
+        {isUserPage ? null : (
+          <Button className={'btn btn-primary my-2 mx-5'} onClick={onClick}>
+            {buttonText}
+          </Button>
+        )}
       </div>
-      {isUserPage ? null : (
-        <Button className={'btn btn-primary'} onClick={onClick}>
-          {buttonText}
-        </Button>
-      )}
     </div>
   );
 }

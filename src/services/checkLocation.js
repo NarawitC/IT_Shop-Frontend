@@ -5,14 +5,14 @@ export const checkLocation = (pathname) => {
   const isAuthPage = pathname.includes('/auth');
   const isUserPage = pathname.includes('/user');
   const isProductPage = pathname.includes('/product');
-  const isOrderPage = pathname.includes('/order');
+  const isOrderCheckoutPage = pathname.includes('/order/checkout');
   const isAdminPage = pathname.includes('/admin');
 
   return {
     isAuthPage,
     isUserPage,
     isProductPage,
-    isOrderPage,
+    isOrderCheckoutPage,
     isAdminPage,
     isHomePage,
     identificationText,
