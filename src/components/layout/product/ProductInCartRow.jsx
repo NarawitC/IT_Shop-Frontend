@@ -11,13 +11,12 @@ function ProductInCartRow({ idx }) {
   const {
     inCartOrderItems,
     setInCartOrderItems,
-    setSelectedInCartItems,
     selectedInCartItems,
-    isSelectAllInCartItems,
+    setSelectedInCartItems,
   } = useOrderContext();
   const navigate = useNavigate();
   const location = useLocation();
-  const { isUserPage } = checkLocation(location.pathname);
+  const { isOrderCheckoutPage } = checkLocation(location.pathname);
   const {
     product: {
       id: productId,
@@ -31,43 +30,63 @@ function ProductInCartRow({ idx }) {
   const itemSubtotal = pricePerUnit * inputQuantity;
 
   const handleCheckBoxWhenNotChecked = () => {
-    setSelectedInCartItems([...selectedInCartItems, productId]);
+    setSelectedInCartItems([...selectedInCartItems, inCartOrderItems[idx]]);
   };
 
   const handleCheckBoxWhenChecked = () => {
-    setSelectedInCartItems(
-      selectedInCartItems.filter((item) => item !== productId)
+    const arr = selectedInCartItems.filter(
+      (item) => item.product.id !== inCartOrderItems[idx].product.id
     );
+    setSelectedInCartItems(arr);
+  };
+  const handleIncreaseCounter = () => {
+    console.log(selectedInCartItems);
+    const arr = [...inCartOrderItems];
+    arr.map((item) => {
+      if (item.product.id === productId) {
+        item.inputQuantity += 1;
+      }
+      return item;
+    });
+    setInCartOrderItems(arr);
+    console.log(selectedInCartItems);
+    const newSelectedInCartItems = [...selectedInCartItems];
+    setSelectedInCartItems(newSelectedInCartItems);
   };
 
-  const handleIncreaseCounter = () => {
-    const newInCartOrderItems = [...inCartOrderItems];
-    newInCartOrderItems[idx].inputQuantity += 1;
-    setInCartOrderItems(newInCartOrderItems);
-  };
   const handleDecreaseCounter = () => {
-    const newInCartOrderItems = [...inCartOrderItems];
-    newInCartOrderItems[idx].inputQuantity -= 1;
-    setInCartOrderItems(newInCartOrderItems);
+    const arr = [...inCartOrderItems];
+    arr.map((item) => {
+      if (item.product.id === inCartOrderItems[idx].product.id) {
+        item.inputQuantity -= 1;
+      }
+      return item;
+    });
+
+    setInCartOrderItems(arr);
+    const newSelectedInCartItems = [...selectedInCartItems];
+    setSelectedInCartItems(newSelectedInCartItems);
   };
   const handleDeleteButton = () => {
-    const newInCartOrderItems = [...inCartOrderItems];
-    newInCartOrderItems.splice(idx, 1);
-    setInCartOrderItems(newInCartOrderItems);
+    const arr = [...inCartOrderItems];
+    arr.splice(idx, 1);
+    setInCartOrderItems(arr);
+    const newSelectedInCartItems = [...selectedInCartItems];
+    newSelectedInCartItems.splice(idx, 1);
+    setSelectedInCartItems(newSelectedInCartItems);
   };
-  // console.log(inCartOrderItems);
+
   return (
     <div className="d-flex ">
       <div className="col-5 align-items-center d-flex gap-3 ms-2 ">
         <div className="col-1 d-flex align-items-center ">
-          {isUserPage ? null : (
+          {isOrderCheckoutPage ? (
             <SquareCheckBox
               onClickWhenChecked={handleCheckBoxWhenChecked}
               onClickWhenNotChecked={handleCheckBoxWhenNotChecked}
-              state={isSelectAllInCartItems}
               className={'col-5'}
             ></SquareCheckBox>
-          )}
+          ) : null}
         </div>
 
         <Link to={`/product/info/${productId}`}>
@@ -97,7 +116,9 @@ function ProductInCartRow({ idx }) {
           <DigitWithBahtIcon digit={itemSubtotal} />
         </div>
         <div className="flex-fill align-items-center text-center">
-          <TrashButton onClick={handleDeleteButton}></TrashButton>
+          {isOrderCheckoutPage ? (
+            <TrashButton onClick={handleDeleteButton}></TrashButton>
+          ) : null}
         </div>
       </div>
     </div>

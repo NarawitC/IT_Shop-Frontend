@@ -1,12 +1,11 @@
 import axios from '../../config/axios';
 
-export const createOrderItemByOrderId = async ({
+export const createOrderItemByOrderId = async (
   orderId,
   product,
-  inputQuantity,
-}) => {
+  inputQuantity
+) => {
   return await axios.post(`/orderItem/createOrderItem/${orderId}`, {
-    orderId,
     product,
     inputQuantity,
   });

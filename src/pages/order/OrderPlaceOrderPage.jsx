@@ -7,18 +7,11 @@ import OrderAndDeliveryLayout from '../../components/layout/order/layout/OrderAn
 import TotalPaymentDetail from '../../components/layout/order/layout/TotalPaymentDetail';
 import OrderTopicSection from '../../components/layout/order/OrderTopicSection';
 import UserSelectedInCartOrder from '../../components/layout/order/UserSelectedInCartOrder';
-import { getInCartOrder } from '../../api/user/order';
-
+import { useOrderContext } from '../../contexts/OrderContext';
 function OrderPlaceOrderPage() {
   const navigate = useNavigate();
-  const [inCartOrder, setInCartOrder] = useState({});
-  useEffect(() => {
-    const fetchInCartOrder = async () => {
-      const { data } = await getInCartOrder();
-      setInCartOrder(data.order);
-    };
-    fetchInCartOrder();
-  }, []);
+  const { inCartOrder } = useOrderContext();
+
   const handlePlaceOrderButton = () => {
     navigate('/order/payment');
   };

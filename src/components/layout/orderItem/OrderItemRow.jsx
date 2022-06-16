@@ -19,7 +19,7 @@ function OrderItemRow({ orderItem, order }) {
   } = orderItem;
   const itemSubtotal = pricePerUnit * quantity;
   const handleEyeBtnClick = () => {
-    if (selectedPurchasedOrder) {
+    if (selectedPurchasedOrder || !isOrderCheckoutPage) {
       navigate('/product/info/' + productId);
     } else {
       setSelectedPurchasedOrder(order);
