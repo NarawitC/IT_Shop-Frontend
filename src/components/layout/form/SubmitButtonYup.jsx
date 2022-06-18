@@ -1,8 +1,8 @@
 import React from 'react';
 
-function SubmitButtonYup({ children, className }) {
+function SubmitButtonYup({ children, className, ...props }) {
   return (
-    <button type="submit" className={className}>
+    <button type="submit" className={className} {...props}>
       {children}
     </button>
   );
