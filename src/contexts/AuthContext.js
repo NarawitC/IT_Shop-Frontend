@@ -31,7 +31,8 @@ function AuthContextProvider({ children }) {
       }
     };
     fetchMe();
-  }, []);
+  }, [navigate]);
+
   const signIn = async (input) => {
     const res = await userSignIn(input);
     setAccessToken(res.data.token);

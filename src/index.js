@@ -9,15 +9,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ErrorContextProvider from './contexts/ErrorContext';
 import AuthContextProvider from './contexts/AuthContext';
+import AdminAuthContextProvider from './contexts/admin/AdminAuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <BrowserRouter>
     <ErrorContextProvider>
-      <AuthContextProvider>
-        <App />
-      </AuthContextProvider>
+      <AdminAuthContextProvider>
+        <AuthContextProvider>
+          <App />
+        </AuthContextProvider>
+      </AdminAuthContextProvider>
     </ErrorContextProvider>
   </BrowserRouter>
   // </React.StrictMode>
