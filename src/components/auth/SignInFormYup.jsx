@@ -6,12 +6,18 @@ import SubmitButtonYup from '../layout/form/SubmitButtonYup';
 import Header from '../layout/form/Header';
 import Button from '../button/Button';
 import { useAuthContext } from '../../contexts/AuthContext';
+import { useAdminAuthContext } from '../../contexts/admin/AdminAuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useErrorContext } from '../../contexts/ErrorContext';
+import { checkLocation } from '../../services/checkLocation';
+import { useLocation } from 'react-router-dom';
 
 function SignInFormYup() {
+  const location = useLocation();
+  const { isAdminPage } = checkLocation(location.pathname);
   const navigate = useNavigate();
   const { signIn } = useAuthContext();
+  const { signInAdmin } = useAdminAuthContext();
   const { setError } = useErrorContext();
 
   const schema = yup.object().shape({
@@ -21,15 +27,23 @@ function SignInFormYup() {
 
   const handleSignInSubmit = async (data, reset) => {
     try {
-      await signIn({
-        email: data.email,
-        password: data.password,
-      });
+      if (isAdminPage) {
+        await signInAdmin({
+          email: data.email,
+          password: data.password,
+        });
+      } else {
+        await signIn({
+          email: data.email,
+          password: data.password,
+        });
+      }
       navigate('/');
     } catch (err) {
       setError(err.response.data.message);
     }
   };
+
   const handleSignUpBtn = () => {
     navigate('/auth/signUp');
   };
@@ -56,9 +70,11 @@ function SignInFormYup() {
         ></InputYup>
       </Header>
       <SubmitButtonYup className={'btn btn-primary'}>Sign In</SubmitButtonYup>
-      <Button className={'btn btn-primary'} onClick={handleSignUpBtn}>
-        Sign Up
-      </Button>
+      {!isAdminPage && (
+        <Button className={'btn btn-primary'} onClick={handleSignUpBtn}>
+          Sign Up
+        </Button>
+      )}
     </FormYup>
   );
 }
