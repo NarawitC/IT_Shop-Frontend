@@ -13,6 +13,7 @@ function OrderPaymentPage() {
   const { placeOrderOrder, deliveryPrice, paymentSlip } = useOrderContext();
   const handleConfirmPaymentButton = async () => {
     const formData = new FormData();
+    // console.log(paymentSlip);
     formData.append('paymentSlip', paymentSlip);
     formData.append('deliveryPrice', deliveryPrice);
     await updateOrderToPending(formData);

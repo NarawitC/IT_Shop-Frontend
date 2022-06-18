@@ -21,8 +21,11 @@ import OrderPlaceOrderPage from '../pages/order/OrderPlaceOrderPage';
 import OrderPaymentPage from '../pages/order/OrderPaymentPage';
 import OrderCompletedPage from '../pages/order/OrderCompletedPage';
 
-import JustAuth from '../components/layout/JustAuth';
+import JustAdmin from '../components/layout/JustAdmin';
 import AdminSignInPage from '../pages/admin/auth/AdminSignInPage';
+import AdminCreateProductPage from '../pages/admin/product/AdminCreateProductPage';
+import CreateProductCompletedPage from '../pages/admin/product/CreateProductCompletedPage';
+
 import { useLocation } from 'react-router-dom';
 function Router() {
   const location = useLocation();
@@ -86,7 +89,18 @@ function Router() {
               <Route
                 path="/admin"
                 element={<HeaderAndFooter></HeaderAndFooter>}
-              ></Route>
+              >
+                <Route
+                  path="product/createProduct"
+                  element={<AdminCreateProductPage></AdminCreateProductPage>}
+                ></Route>
+                <Route
+                  path="product/createProduct/completed"
+                  element={
+                    <CreateProductCompletedPage></CreateProductCompletedPage>
+                  }
+                ></Route>
+              </Route>
               <Route
                 path=""
                 element={<Navigate to="/admin"></Navigate>}
@@ -106,7 +120,7 @@ function Router() {
             element={<SignUpCompletedPage></SignUpCompletedPage>}
           />
           <Route path="/auth/signIn" element={<SignInPage></SignInPage>} />
-          <Route path="/admin" element={<JustAuth></JustAuth>}>
+          <Route path="/admin" element={<JustAdmin></JustAdmin>}>
             <Route
               path="auth/signIn"
               element={<AdminSignInPage></AdminSignInPage>}

@@ -9,7 +9,7 @@ function FormYup({ onSubmit, defaultValues = {}, children, schema, style }) {
   return (
     <FormProvider {...methods}>
       <form
-        className="p-3 py-4 d-flex flex-column gap-3 bg-light1"
+        className="p-3 py-4 d-flex flex-column gap-4 bg-light1"
         onSubmit={methods.handleSubmit((data) => {
           onSubmit(data);
         })}
