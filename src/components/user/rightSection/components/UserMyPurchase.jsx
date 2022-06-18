@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 
-import UserPurchasedOrder from '../../../layout/order/UserPurchasedOrder';
-import UserSelectedPurchasedOrder from '../../../layout/order/UserSelectedPurchasedOrder';
+import UserPurchasedOrder from '../../../order/UserPurchasedOrder';
+import UserSelectedPurchasedOrder from '../../../order/UserSelectedPurchasedOrder';
 import AllOrderLayout from '../../../layout/order/layout/AllOrderLayout';
-import OrderTopicSection from '../../../layout/order/OrderTopicSection';
+import OrderTopicSection from '../../../order/OrderTopicSection';
 import OrderItemListLayout from '../../../layout/orderItem/layout/OrderItemListLayout';
 import OrderAndDeliveryLayout from '../../../layout/order/layout/OrderAndDeliveryLayout';
-import AddressDetail from '../../../layout/order/AddressDetail';
-import TotalPaymentDetail from '../../../layout/order/layout/TotalPaymentDetail';
+import AddressDetail from '../../../order/AddressDetail';
 import { getUserPurchasedOrders } from '../../../../api/user/user';
 import { useUserContext } from '../../../../contexts/UserContext';
+import TotalPaymentDetail from '../../../layout/order/layout/TotalPaymentDetail';
 
 function UserMyPurchase() {
   const {

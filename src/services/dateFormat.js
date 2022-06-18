@@ -10,7 +10,7 @@ export const timeSince = (date) => {
   return timeAgo.format(new Date(date), 'mini-now');
 };
 
-export const dateTimeFormat = (date) => {
+export const dateFormat = (date) => {
   return new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',

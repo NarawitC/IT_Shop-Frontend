@@ -1,12 +1,12 @@
-import { useAuthContext } from '../../../contexts/AuthContext';
-import { LocationIcon } from '../../icon/icon';
-import AddressHr from './components/AddressHr';
-function AddressDetail({ selectedPurchasedOrder, selectedInCartOrder }) {
+import { useAuthContext } from '../../contexts/AuthContext';
+import { LocationIcon } from '../icon/icon';
+import AddressHr from '../layout/order/components/AddressHr';
+function AddressDetail({ selectedPurchasedOrder, placeOrderOrder }) {
   const {
     user: { phoneNumber, firstName, lastName, address },
   } = useAuthContext();
   let deliveryAddress;
-  if (selectedInCartOrder) {
+  if (placeOrderOrder) {
     deliveryAddress = address;
   }
   if (selectedPurchasedOrder) {

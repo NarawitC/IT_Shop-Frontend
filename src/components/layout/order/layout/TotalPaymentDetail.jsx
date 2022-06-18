@@ -36,18 +36,18 @@ function TotalPaymentDetail({ buttonText, onClick, order }) {
           </div>
         ) : null}
         <div className="d-flex justify-content-between align-items-center font-text2">
-          <div>Merchandise subtotal:</div>
+          <div>Product price:</div>
           <div>{productPrice}</div>
         </div>
         <div className="d-flex justify-content-between align-items-center font-text2">
-          <div>Shipping Total:</div>
-          <div>{deliveryPrice}</div>
+          <div>Delivery price:</div>
+          <div>{order.deliveryPrice || deliveryPrice}</div>
         </div>
         <div className="d-flex justify-content-between align-items-center ">
           <div className="font-text2">Total Payment:</div>
           <div className="font-text-secondary font-size-20 font-weight-500">
             <DigitWithBahtIcon
-              digit={productPrice + deliveryPrice}
+              digit={productPrice + (order.deliveryPrice || deliveryPrice)}
             ></DigitWithBahtIcon>
           </div>
         </div>

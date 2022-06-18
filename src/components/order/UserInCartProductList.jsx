@@ -1,5 +1,5 @@
-import { useOrderContext } from '../../../contexts/OrderContext';
-import ProductInCartRow from '../product/ProductInCartRow';
+import { useOrderContext } from '../../contexts/OrderContext';
+import ProductInCartRow from '../layout/product/ProductInCartRow';
 
 function UserInCartProductList() {
   const { inCartOrderItems } = useOrderContext();

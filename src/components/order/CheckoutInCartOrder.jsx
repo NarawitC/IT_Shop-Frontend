@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import SquareCheckBox from '../../common/SquareCheckBox';
-import { useOrderContext } from '../../../contexts/OrderContext';
-import Button from '../../button/Button';
-import DigitWithBahtIcon from '../../common/DigitWithBahtIcon';
-import { createOrderAndDeleteInCartOrder } from '../../../api/user/order';
-import { createOrderItemByOrderId } from '../../../api/user/orderItem';
+import { useOrderContext } from '../../contexts/OrderContext';
+import Button from '../button/Button';
+import DigitWithBahtIcon from '../common/DigitWithBahtIcon';
+import { createOrderAndDeleteInCartOrder } from '../../api/user/order';
+import { createOrderItemByOrderId } from '../../api/user/orderItem';
 
 function CheckoutInCartOrder() {
   const {
-    productPrice,
-    setProductPrice,
+    allProductPrice,
+    setAllProductPrice,
     selectedInCartItems,
     setSelectedInCartItems,
   } = useOrderContext();
@@ -28,11 +27,11 @@ function CheckoutInCartOrder() {
         item.inputQuantity
       );
     });
-    navigate('/order/payment');
+    navigate('/order/placeOrder');
   };
 
   useEffect(() => {
-    setProductPrice(
+    setAllProductPrice(
       selectedInCartItems.reduce((acc, item) => {
         return acc + item.product.price * item.inputQuantity;
       }, 0)
@@ -48,7 +47,7 @@ function CheckoutInCartOrder() {
       <div className="col-7 d-flex">
         <div className="font-text-secondary d-flex gap-2 font-size-20 col-6 align-items-center justify-content-center">
           <div>Product price: </div>
-          <DigitWithBahtIcon digit={productPrice} />
+          <DigitWithBahtIcon digit={allProductPrice} />
         </div>
         <div className="col-6 px-5">
           <Button

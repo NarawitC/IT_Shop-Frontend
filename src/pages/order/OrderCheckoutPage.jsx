@@ -1,7 +1,7 @@
 import AllOrderLayout from '../../components/layout/order/layout/AllOrderLayout';
-import OrderTopicSection from '../../components/layout/order/OrderTopicSection';
-import UserInCartProductList from '../../components/layout/order/UserInCartProductList';
-import CheckOutInCartOrder from '../../components/layout/order/CheckoutInCartOrder';
+import OrderTopicSection from '../../components/order/OrderTopicSection';
+import UserInCartProductList from '../../components/order/UserInCartProductList';
+import CheckOutInCartOrder from '../../components/order/CheckoutInCartOrder';
 function OrderCheckoutPage() {
   return (
     <div className="content-default-width mx-auto">

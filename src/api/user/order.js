@@ -7,3 +7,7 @@ export const getInCartOrder = () => {
 export const createOrderAndDeleteInCartOrder = async () => {
   return await axios.patch('/order/createOrder');
 };
+
+export const updateOrderToPending = async (formData) => {
+  return await axios.patch('/order/toPending', formData);
+};

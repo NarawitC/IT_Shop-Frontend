@@ -38,7 +38,7 @@ function ProductInCartRow({ idx }) {
     );
     setSelectedInCartItems(arr);
   };
-  
+
   const handleIncreaseCounter = () => {
     const arr = [...inCartOrderItems];
     arr.map((item) => {
@@ -48,7 +48,6 @@ function ProductInCartRow({ idx }) {
       return item;
     });
     setInCartOrderItems(arr);
-    console.log(selectedInCartItems);
     const newSelectedInCartItems = [...selectedInCartItems];
     newSelectedInCartItems.map((item) => {
       if (item.product.id === productId) {
@@ -104,9 +103,9 @@ function ProductInCartRow({ idx }) {
           {isOrderCheckoutPage ? (
             <SquareCheckBox
               onClickWhenChecked={handleCheckBoxWhenChecked}
-              onClickWhenNotChecked={handleCheckBoxWhenNotChecked}
               className={'col-5'}
-            ></SquareCheckBox>
+              onClickWhenNotChecked={handleCheckBoxWhenNotChecked}
+            />
           ) : null}
         </div>
 

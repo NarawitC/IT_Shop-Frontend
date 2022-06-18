@@ -1,4 +1,4 @@
-import OrderItemRow from '../orderItem/OrderItemRow';
+import OrderItemRow from '../layout/orderItem/OrderItemRow';
 
 function UserSelectedPurchasedOrder({ selectedPurchasedOrder }) {
   const { OrderItems } = selectedPurchasedOrder;
