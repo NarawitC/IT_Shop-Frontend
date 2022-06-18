@@ -7,32 +7,27 @@ import { checkLocation } from '../../../services/checkLocation';
 import { useUserContext } from '../../../contexts/UserContext';
 
 function OrderItemRow({ orderItem, order }) {
+  const { isUserPage } = useUserContext();
   const navigate = useNavigate();
-  const location = useLocation();
-  const { isOrderCheckoutPage, isUserPage } = checkLocation(location.pathname);
   const { setSelectedPurchasedOrder, selectedPurchasedOrder } =
     useUserContext();
   const {
-    Product: { price: pricePerUnit, name, mainPicture },
-    quantity,
+    Product: { mainPicture, name, price: pricePerUnit },
     productId,
+    quantity,
   } = orderItem;
   const itemSubtotal = pricePerUnit * quantity;
   const handleEyeBtnClick = () => {
-    if (selectedPurchasedOrder || !isOrderCheckoutPage) {
-      navigate('/product/info/' + productId);
-    } else {
+    if (!selectedPurchasedOrder || isUserPage) {
       setSelectedPurchasedOrder(order);
+    } else {
+      navigate(`/product/info/${productId}`);
     }
   };
   return (
     <div className="d-flex ">
       <div className="col-5 align-items-center d-flex gap-3 ms-2">
-        <div className="col-1 d-flex align-items-center">
-          {isOrderCheckoutPage ? (
-            <SquareCheckBox className={'col-5'}></SquareCheckBox>
-          ) : null}
-        </div>
+        <div className="col-1 d-flex align-items-center"></div>
 
         <Link to={`/product/info/${productId}`}>
           <img

@@ -1,7 +1,7 @@
-import OrderItemRow from '../orderItem/OrderItemRow';
-import { dateTimeFormat } from '../../../services/dateFormat';
-import { useUserContext } from '../../../contexts/UserContext';
-import OrderPurchaseLayout from './layout/OrderPurchaseLayout';
+import OrderItemRow from '../layout/orderItem/OrderItemRow';
+
+import { dateFormat } from '../../services/dateFormat';
+import OrderPurchaseLayout from '../layout/order/layout/OrderPurchaseLayout';
 
 function UserPurchasedOrder({ order }) {
   const { OrderItems, paymentAt, deliveryAddress } = order;
@@ -10,7 +10,7 @@ function UserPurchasedOrder({ order }) {
     <div className="d-flex flex-column px-2 bg-light1 ">
       <div>
         <div className="col-6 font-size-12">
-          Payment date: {dateTimeFormat(paymentAt)}
+          Payment date: {dateFormat(paymentAt)}
         </div>
         <div className="col-6 font-size-12">
           Delivery address: {deliveryAddress}

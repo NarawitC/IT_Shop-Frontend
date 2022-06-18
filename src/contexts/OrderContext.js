@@ -6,7 +6,11 @@ const OrderContext = createContext();
 const OrderContextProvider = ({ children }) => {
   const [inCartOrderItems, setInCartOrderItems] = useState([]);
   const [selectedInCartItems, setSelectedInCartItems] = useState([]);
-  const [productPrice, setProductPrice] = useState(0);
+  const [allProductPrice, setAllProductPrice] = useState(0);
+  const [deliveryPrice, setDeliveryPrice] = useState(0);
+  const [paymentSlip, setPaymentSlip] = useState(false);
+  //| fetch In cart order that use to display
+  const [placeOrderOrder, setPlaceOrderOrder] = useState({});
 
   useEffect(() => {
     const fetchInCartOrder = async () => {
@@ -15,7 +19,6 @@ const OrderContextProvider = ({ children }) => {
           order: { OrderItems },
         },
       } = await getInCartOrder();
-
       OrderItems.forEach((orderItem) => {
         setInCartOrderItems((prev) => {
           return [
@@ -35,8 +38,14 @@ const OrderContextProvider = ({ children }) => {
         setInCartOrderItems,
         selectedInCartItems,
         setSelectedInCartItems,
-        productPrice,
-        setProductPrice,
+        allProductPrice,
+        setAllProductPrice,
+        deliveryPrice,
+        setDeliveryPrice,
+        placeOrderOrder,
+        setPlaceOrderOrder,
+        paymentSlip,
+        setPaymentSlip,
       }}
     >
       {children}

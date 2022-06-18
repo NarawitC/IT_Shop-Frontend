@@ -45,7 +45,6 @@ function RightSection() {
 
   const handleEditSubmit = async (data, reset) => {
     try {
-      console.log('first');
       await updateInfo(data);
       navigate('/');
     } catch (err) {
