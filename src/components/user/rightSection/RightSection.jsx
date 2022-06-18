@@ -46,7 +46,7 @@ function RightSection() {
   const handleEditSubmit = async (data, reset) => {
     try {
       await updateInfo(data);
-      navigate('/');
+      navigate('/user/infoUpdated');
     } catch (err) {
       setError(err.response.data.message);
     }

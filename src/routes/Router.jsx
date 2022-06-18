@@ -4,7 +4,9 @@ import { useAuthContext } from '../contexts/AuthContext';
 import HeaderAndFooter from '../components/layout/HeaderAndFooter';
 import SignInPage from '../pages/auth/SignInPage';
 import SignUpPage from '../pages/auth/SignUpPage';
+import SignUpCompletedPage from '../pages/auth/SignUpCompletedPage';
 import UserPage from '../pages/user/UserPage';
+import UserInfoUpdatedPage from '../pages/user/UserInfoUpdatedPage';
 import HomePage from '../pages/HomePage';
 
 import AllProductPage from '../pages/product/AllProductPage';
@@ -27,6 +29,10 @@ function Router() {
           <Route path="/" element={<HeaderAndFooter></HeaderAndFooter>}>
             <Route path="" element={<HomePage></HomePage>} />
             <Route path="user" element={<UserPage></UserPage>}></Route>
+            <Route
+              path="user/infoUpdated"
+              element={<UserInfoUpdatedPage></UserInfoUpdatedPage>}
+            ></Route>
             <Route path="product" element={<AllProductPage />}></Route>
             <Route
               path="/product/category/:categoryId"
@@ -67,6 +73,10 @@ function Router() {
       ) : (
         <Route path="/" element={<HeaderAndFooter></HeaderAndFooter>}>
           <Route path="/auth/signUp" element={<SignUpPage></SignUpPage>} />
+          <Route
+            path="/auth/signUpCompleted"
+            element={<SignUpCompletedPage></SignUpCompletedPage>}
+          />
           <Route path="/auth/signIn" element={<SignInPage></SignInPage>} />
           <Route
             path="/"

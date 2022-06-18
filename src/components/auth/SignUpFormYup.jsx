@@ -41,7 +41,7 @@ function SignUpFormYup() {
       data.address =
         streetName + ' ' + province + ' ' + district + ' ' + postalCode;
       await signUp(data);
-      navigate('/');
+      navigate('/auth/signUpCompleted');
       reset();
     } catch (err) {
       setError(err.response.data.message);
