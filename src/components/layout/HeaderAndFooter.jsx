@@ -13,7 +13,7 @@ function HeaderAndFooter() {
   return (
     <div>
       <Header />
-      <button onClick={() => navigate('/admin/product/createProduct')}>
+      <button onClick={() => navigate('/admin/product/updateProduct/4')}>
         asd
       </button>
       <Outlet />

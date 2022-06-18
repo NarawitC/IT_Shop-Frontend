@@ -25,6 +25,8 @@ import JustAdmin from '../components/layout/JustAdmin';
 import AdminSignInPage from '../pages/admin/auth/AdminSignInPage';
 import AdminCreateProductPage from '../pages/admin/product/AdminCreateProductPage';
 import CreateProductCompletedPage from '../pages/admin/product/CreateProductCompletedPage';
+import AdminUpdateProductPage from '../pages/admin/product/AdminUpdateProductPage';
+import UpdateProductCompletedPage from '../pages/admin/product/UpdateProductCompletedPage';
 
 import { useLocation } from 'react-router-dom';
 function Router() {
@@ -95,9 +97,19 @@ function Router() {
                   element={<AdminCreateProductPage></AdminCreateProductPage>}
                 ></Route>
                 <Route
+                  path="product/updateProduct/:productId"
+                  element={<AdminUpdateProductPage></AdminUpdateProductPage>}
+                ></Route>
+                <Route
                   path="product/createProduct/completed"
                   element={
                     <CreateProductCompletedPage></CreateProductCompletedPage>
+                  }
+                ></Route>
+                <Route
+                  path="product/updateProduct/completed"
+                  element={
+                    <UpdateProductCompletedPage></UpdateProductCompletedPage>
                   }
                 ></Route>
               </Route>
