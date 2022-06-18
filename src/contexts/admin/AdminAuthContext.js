@@ -28,6 +28,7 @@ function AdminAuthContextProvider({ children }) {
       } catch (err) {
         removeToken();
         navigate('/admin/auth/signIn');
+        setError(err.message);
       }
     };
     fetchMe();
@@ -36,7 +37,6 @@ function AdminAuthContextProvider({ children }) {
   const signInAdmin = async (input) => {
     const res = await adminSignIn(input);
     setAccessToken(res.data.token);
-    console.log(res.data.token);
     const resMe = await getAdminInfo();
     setAdmin(resMe.data.admin);
   };

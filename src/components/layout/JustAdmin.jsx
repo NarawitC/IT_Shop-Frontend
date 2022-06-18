@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-function JustAuth() {
+function JustAdmin() {
   return (
     <div>
       <Outlet />
@@ -8,4 +8,4 @@ function JustAuth() {
   );
 }
 
-export default JustAuth;
+export default JustAdmin;
