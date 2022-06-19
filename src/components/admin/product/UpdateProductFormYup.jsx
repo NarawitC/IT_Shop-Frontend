@@ -14,7 +14,7 @@ import { getProductById } from '../../../api/admin/product';
 import { getAllCategories } from '../../../api/admin/category';
 import { useEffect, useState } from 'react';
 
-function CreateProductFormYup() {
+function UpdateProductFormYup() {
   const [editMode, setEditMode] = useState(false);
   const { productId } = useParams();
   const { setError } = useErrorContext();
@@ -56,18 +56,10 @@ function CreateProductFormYup() {
 
   const handleUpdateSubmit = async (data, reset) => {
     try {
-      const {
-        name,
-        description,
-        quantity,
-        price,
-        mainPicture,
-        subPicture1,
-        subPicture2,
-        subPicture3,
-        subPicture4,
-        properties,
-      } = data;
+      const { name, description, quantity, price, properties } = data;
+      console.log(category);
+      console.log(subCategory);
+      console.log(data);
       const formData = new FormData();
       formData.append('name', name);
       formData.append('description', description);
@@ -131,141 +123,140 @@ function CreateProductFormYup() {
       setSubCategory(category.SubCategories[0]);
     }
   }, [category]);
-  return (
-    <FormYup
-      onSubmit={handleUpdateSubmit}
-      defaultValues={{
-        name,
-        description,
-        quantity,
-        price,
-        mainPicture,
-        subPicture1,
-        subPicture2,
-        subPicture3,
-        subPicture4,
-        categoryId,
-        subCategoryId,
-        properties,
-      }}
-      schema={schema}
-    >
-      <Header text={'Add new product'}>
-        <InputYup
-          name="name"
-          disabled={!editMode}
-          text={'Product name'}
-          placeholder="Product name"
-        ></InputYup>
-        <InputYup
-          name="description"
-          disabled={!editMode}
-          text={'Description'}
-          placeholder="Description"
-        ></InputYup>
-        <InputYup
-          name="quantity"
-          disabled={!editMode}
-          text={'Quantity'}
-          placeholder="Quantity"
-        ></InputYup>
-        <InputYup
-          name="price"
-          disabled={!editMode}
-          text={'Price'}
-          placeholder="Price"
-        ></InputYup>
-        <InputYup
-          name="properties"
-          disabled={!editMode}
-          text={'Properties'}
-          placeholder="Properties"
-        ></InputYup>
-        <InputFileYup
-          name="mainPicture"
-          disabled={!editMode}
-          text={'Main picture'}
-          placeholder="Main picture"
-        ></InputFileYup>
-        <InputFileYup
-          name="subPicture1"
-          disabled={!editMode}
-          text={'Sub picture 1'}
-          placeholder="Sub picture 1"
-        ></InputFileYup>
-        <InputFileYup
-          name="subPicture2"
-          disabled={!editMode}
-          text={'Sub picture 2'}
-          placeholder="Sub picture 2"
-        ></InputFileYup>
-        <InputFileYup
-          name="subPicture3"
-          disabled={!editMode}
-          text={'Sub picture 3'}
-          placeholder="Sub picture 3"
-        ></InputFileYup>
-        <InputFileYup
-          name="subPicture4"
-          disabled={!editMode}
-          text={'Sub picture 4'}
-          placeholder="Sub picture 4"
-        ></InputFileYup>
-        <div className=" d-flex flex-column gap-2" style={{ width: '10%' }}>
-          <label
-            htmlFor={`categoryInput`}
-            className="font-text-primary font-weight-500 ms-2"
-          >
-            Category
-          </label>
-          <select
+  if (product.name) {
+    return (
+      <FormYup
+        onSubmit={handleUpdateSubmit}
+        defaultValues={{
+          name,
+          description,
+          quantity,
+          price,
+          categoryId,
+          subCategoryId,
+          properties,
+        }}
+        schema={schema}
+      >
+        <Header text={'Add new product'}>
+          <InputYup
+            name="name"
             disabled={!editMode}
-            className="form-select"
-            onChange={handleOnChangeCategory}
-            id={`categoryInput`}
-          >
-            {categories.map((category) => {
-              return (
-                <option key={category.id} value={category.id}>
-                  {category.name}
-                </option>
-              );
-            })}
-          </select>
-          <div className="text-danger font-size-8 ms-2">&nbsp;</div>
-        </div>
-        <div className="d-flex flex-column gap-2" style={{ width: '10%' }}>
-          <label
-            htmlFor={`subCategoryInput`}
-            className="font-text-primary font-weight-500 ms-2"
-          >
-            Sub category
-          </label>
-          <select
+            text={'Product name'}
+            placeholder="Product name"
+          ></InputYup>
+          <InputYup
+            name="description"
             disabled={!editMode}
-            className="form-select"
-            onChange={handleOnChangeSubCategory}
-            id={`subCategoryInput`}
-          >
-            {category.SubCategories.map((subCategory) => {
-              return (
-                <option key={subCategory.id} value={subCategory.id}>
-                  {subCategory.name}
-                </option>
-              );
-            })}
-          </select>
-          <div className="text-danger font-size-8 ms-2">&nbsp;</div>
-        </div>
-      </Header>
-      <Button onClick={handleEditButton} className={'my-btn-primary'}>
-        Edit
-      </Button>
-      <SubmitButtonYup disabled={editMode} className={'btn btn-primary'}>
-        Submit
-      </SubmitButtonYup>
-    </FormYup>
-  );
+            text={'Description'}
+            placeholder="Description"
+          ></InputYup>
+          <InputYup
+            name="quantity"
+            disabled={!editMode}
+            text={'Quantity'}
+            placeholder="Quantity"
+          ></InputYup>
+          <InputYup
+            name="price"
+            disabled={!editMode}
+            text={'Price'}
+            placeholder="Price"
+          ></InputYup>
+          <InputYup
+            name="properties"
+            disabled={!editMode}
+            text={'Properties'}
+            placeholder="Properties"
+          ></InputYup>
+          <InputFileYup
+            name="mainPicture"
+            disabled={!editMode}
+            text={'Main picture'}
+            placeholder="Main picture"
+          ></InputFileYup>
+          <InputFileYup
+            name="subPicture1"
+            disabled={!editMode}
+            text={'Sub picture 1'}
+            placeholder="Sub picture 1"
+          ></InputFileYup>
+          <InputFileYup
+            name="subPicture2"
+            disabled={!editMode}
+            text={'Sub picture 2'}
+            placeholder="Sub picture 2"
+          ></InputFileYup>
+          <InputFileYup
+            name="subPicture3"
+            disabled={!editMode}
+            text={'Sub picture 3'}
+            placeholder="Sub picture 3"
+          ></InputFileYup>
+          <InputFileYup
+            name="subPicture4"
+            disabled={!editMode}
+            text={'Sub picture 4'}
+            placeholder="Sub picture 4"
+          ></InputFileYup>
+          <div className=" d-flex flex-column gap-2" style={{ width: '10%' }}>
+            <label
+              htmlFor={`categoryInput`}
+              className="font-text-primary font-weight-500 ms-2"
+            >
+              Category
+            </label>
+            <select
+              disabled={!editMode}
+              className="form-select"
+              onChange={handleOnChangeCategory}
+              id={`categoryInput`}
+            >
+              {categories.map((category) => {
+                return (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                );
+              })}
+            </select>
+            <div className="text-danger font-size-8 ms-2">&nbsp;</div>
+          </div>
+          <div className="d-flex flex-column gap-2" style={{ width: '10%' }}>
+            <label
+              htmlFor={`subCategoryInput`}
+              className="font-text-primary font-weight-500 ms-2"
+            >
+              Sub category
+            </label>
+            <select
+              disabled={!editMode}
+              className="form-select"
+              onChange={handleOnChangeSubCategory}
+              id={`subCategoryInput`}
+            >
+              {category.SubCategories.map((subCategory) => {
+                return (
+                  <option key={subCategory.id} value={subCategory.id}>
+                    {subCategory.name}
+                  </option>
+                );
+              })}
+            </select>
+            <div className="text-danger font-size-8 ms-2">&nbsp;</div>
+          </div>
+        </Header>
+        <Button onClick={handleEditButton} className={'my-btn-primary'}>
+          Edit
+        </Button>
+        <SubmitButtonYup disabled={editMode} className={'btn btn-primary'}>
+          Submit
+        </SubmitButtonYup>
+      </FormYup>
+    );
+  } else {
+    return <div>Loading...</div>;
+  }
 }
 
-export default CreateProductFormYup;
+export default UpdateProductFormYup;
