@@ -7,7 +7,7 @@ function OrderCompletedPage() {
       <CompletedAction
         displayText={'Your payment is completed'}
         buttonText={'Back to Home page'}
-        buttonOnClick={() => navigate('/')}
+        buttonOnClick={() => navigate('/product')}
       ></CompletedAction>
     </div>
   );

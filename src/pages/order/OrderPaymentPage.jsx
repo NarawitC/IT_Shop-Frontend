@@ -7,18 +7,35 @@ import BankAccountReceivedMoney from '../../components/order/BankAccountReceived
 import TransactionSending from '../../components/order/TransactionSending';
 import { updateOrderToPending } from '../../api/user/order';
 import { useNavigate } from 'react-router-dom';
+import { useErrorContext } from '../../contexts/ErrorContext';
+import LoadingPage from '../../pages/LoadingPage';
+import { useState } from 'react';
 
 function OrderPaymentPage() {
+  const { setError } = useErrorContext();
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const { placeOrderOrder, deliveryPrice, paymentSlip } = useOrderContext();
+  const { placeOrderOrder, deliveryPrice, paymentSlip, allProductPrice } =
+    useOrderContext();
   const handleConfirmPaymentButton = async () => {
-    const formData = new FormData();
-    // console.log(paymentSlip);
-    formData.append('paymentSlip', paymentSlip);
-    formData.append('deliveryPrice', deliveryPrice);
-    await updateOrderToPending(formData);
-    navigate('/order/completed');
+    try {
+      setIsLoading(true);
+      const formData = new FormData();
+      // console.log(paymentSlip);
+      formData.append('paymentSlip', paymentSlip);
+      formData.append('deliveryPrice', deliveryPrice);
+      formData.append('productPrice', allProductPrice);
+      await updateOrderToPending(formData);
+      setIsLoading(false);
+      navigate('/order/completed');
+    } catch (error) {
+      setError(error.response.data.message);
+    }
   };
+
+  if (isLoading) {
+    return <LoadingPage />;
+  }
   return (
     <div className="content-default-width mx-auto d-flex flex-column gap-4">
       <div>

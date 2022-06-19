@@ -6,6 +6,7 @@ import { useErrorContext } from './contexts/ErrorContext';
 
 import UserContextProvider from './contexts/UserContext';
 import OrderContextProvider from './contexts/OrderContext';
+import AdminOrderContextProvider from './contexts/admin/AdminOrderContext';
 
 function App() {
   const { error, setError } = useErrorContext();
@@ -19,24 +20,26 @@ function App() {
   }, [error]);
   return (
     <UserContextProvider>
-      <OrderContextProvider>
-        <Router/>
-        <div className={`toast-container fixed-bottom pb-5 mx-auto`}>
-          <div
-            className="toast align-items-center text-white bg-danger border-0"
-            ref={toastEl}
-          >
-            <div className="d-flex">
-              <div className="toast-body">{error}</div>
-              <button
-                type="button"
-                className="btn-close btn-close-white me-2 m-auto"
-                data-bs-dismiss="toast"
-              ></button>
+      <AdminOrderContextProvider>
+        <OrderContextProvider>
+          <Router />
+          <div className={`toast-container fixed-bottom pb-5 mx-auto`}>
+            <div
+              className="toast align-items-center text-white bg-danger border-0"
+              ref={toastEl}
+            >
+              <div className="d-flex">
+                <div className="toast-body">{error}</div>
+                <button
+                  type="button"
+                  className="btn-close btn-close-white me-2 m-auto"
+                  data-bs-dismiss="toast"
+                ></button>
+              </div>
             </div>
           </div>
-        </div>
-      </OrderContextProvider>
+        </OrderContextProvider>
+      </AdminOrderContextProvider>
     </UserContextProvider>
   );
 }

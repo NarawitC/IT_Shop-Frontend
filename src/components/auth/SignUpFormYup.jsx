@@ -9,7 +9,11 @@ import Header from '../layout/form/Header';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { useErrorContext } from '../../contexts/ErrorContext';
 
+import LoadingPage from '../../pages/LoadingPage';
+import { useState } from 'react';
+
 function SignUpFormYup() {
+  const [isLoading, setIsLoading] = useState(false);
   const { signUp } = useAuthContext();
   const { setError } = useErrorContext();
   const navigate = useNavigate();
@@ -37,17 +41,22 @@ function SignUpFormYup() {
 
   const handleSignUpSubmit = async (data, reset) => {
     try {
+      setIsLoading(true);
       const { streetName, province, district, postalCode } = data;
       data.address =
         streetName + ' ' + province + ' ' + district + ' ' + postalCode;
       await signUp(data);
       navigate('/auth/signUpCompleted');
       reset();
+      setIsLoading(false);
     } catch (err) {
       setError(err.response.data.message);
     }
   };
 
+  if (isLoading) {
+    return <LoadingPage />;
+  }
   return (
     <FormYup
       onSubmit={handleSignUpSubmit}

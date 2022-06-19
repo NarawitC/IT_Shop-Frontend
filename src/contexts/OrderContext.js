@@ -2,8 +2,12 @@ import { useEffect } from 'react';
 import { createContext, useState, useContext } from 'react';
 import { getInCartOrder } from '../api/user/order';
 
+import { useAuthContext } from './AuthContext';
+
 const OrderContext = createContext();
 const OrderContextProvider = ({ children }) => {
+  const { user } = useAuthContext();
+
   const [inCartOrderItems, setInCartOrderItems] = useState([]);
   const [selectedInCartItems, setSelectedInCartItems] = useState([]);
   const [allProductPrice, setAllProductPrice] = useState(0);
@@ -13,23 +17,25 @@ const OrderContextProvider = ({ children }) => {
   const [placeOrderOrder, setPlaceOrderOrder] = useState({});
 
   useEffect(() => {
-    const fetchInCartOrder = async () => {
-      const {
-        data: {
-          order: { OrderItems },
-        },
-      } = await getInCartOrder();
-      OrderItems.forEach((orderItem) => {
-        setInCartOrderItems((prev) => {
-          return [
-            ...prev,
-            { product: orderItem.Product, inputQuantity: orderItem.quantity },
-          ];
+    if (user) {
+      const fetchInCartOrder = async () => {
+        const {
+          data: {
+            order: { OrderItems },
+          },
+        } = await getInCartOrder();
+        OrderItems.forEach((orderItem) => {
+          setInCartOrderItems((prev) => {
+            return [
+              ...prev,
+              { product: orderItem.Product, inputQuantity: orderItem.quantity },
+            ];
+          });
         });
-      });
-    };
-    fetchInCartOrder();
-  }, []);
+      };
+      fetchInCartOrder();
+    }
+  }, [user]);
 
   return (
     <OrderContext.Provider

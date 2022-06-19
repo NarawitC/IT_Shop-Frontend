@@ -62,7 +62,7 @@ function ProductInCartRow({ idx }) {
     const arr = [...inCartOrderItems];
     arr.map((item) => {
       if (item.product.id === inCartOrderItems[idx].product.id) {
-        item.inputQuantity -= 1;
+        return (item.inputQuantity -= 1);
       }
       return item;
     });
@@ -79,20 +79,10 @@ function ProductInCartRow({ idx }) {
   };
   const handleDeleteButton = () => {
     const arr = [...inCartOrderItems];
-    arr.filter((item) => {
-      if (item.product.id !== productId) {
-        return item;
-      }
-      return item;
-    });
+    arr.splice(idx, 1);
     setInCartOrderItems(arr);
     const newSelectedInCartItems = [...selectedInCartItems];
-    newSelectedInCartItems.filter((item) => {
-      if (item.product.id !== productId) {
-        return item;
-      }
-      return item;
-    });
+    newSelectedInCartItems.splice(idx, 1);
     setSelectedInCartItems(newSelectedInCartItems);
   };
 

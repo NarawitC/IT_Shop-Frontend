@@ -12,12 +12,17 @@ import { adminCreateProduct } from '../../../api/admin/product';
 import { getAllCategories } from '../../../api/admin/category';
 import { useEffect, useState } from 'react';
 
-function CreateProductFormYup() {
+function CreateProductFormYup({ setIsLoading }) {
   const { setError } = useErrorContext();
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState({ SubCategories: [] });
   const [subCategory, setSubCategory] = useState({});
+  const [mainPicture, setMainPicture] = useState(null);
+  const [subPicture1, setSubPicture1] = useState(null);
+  const [subPicture2, setSubPicture2] = useState(null);
+  const [subPicture3, setSubPicture3] = useState(null);
+  const [subPicture4, setSubPicture4] = useState(null);
 
   // console.log(category);
   // console.log(subCategory);
@@ -40,16 +45,13 @@ function CreateProductFormYup() {
 
   const handleSignUpSubmit = async (data, reset) => {
     try {
+      setIsLoading(true);
       const {
         name,
         description,
         quantity,
         price,
-        mainPicture,
-        subPicture1,
-        subPicture2,
-        subPicture3,
-        subPicture4,
+
         properties,
       } = data;
       const formData = new FormData();
@@ -68,7 +70,7 @@ function CreateProductFormYup() {
 
       await adminCreateProduct(formData);
       navigate('/admin/product/createProduct/completed');
-      reset();
+      setIsLoading(false);
     } catch (err) {
       setError(err.response.data.message);
     }
@@ -85,6 +87,27 @@ function CreateProductFormYup() {
       (subCategory) => subCategory.id === +value
     );
     setSubCategory(subCategory);
+  };
+
+  const handleOnChangeMainPicture = (e) => {
+    const { files } = e.target;
+    setMainPicture(files[0]);
+  };
+  const handleOnChangeSubPicture1 = (e) => {
+    const { files } = e.target;
+    setSubPicture1(files[0]);
+  };
+  const handleOnChangeSubPicture2 = (e) => {
+    const { files } = e.target;
+    setSubPicture2(files[0]);
+  };
+  const handleOnChangeSubPicture3 = (e) => {
+    const { files } = e.target;
+    setSubPicture3(files[0]);
+  };
+  const handleOnChangeSubPicture4 = (e) => {
+    const { files } = e.target;
+    setSubPicture4(files[0]);
   };
 
   useEffect(() => {
@@ -144,31 +167,87 @@ function CreateProductFormYup() {
           text={'Properties'}
           placeholder="Properties"
         ></InputYup>
-        <InputFileYup
-          name="mainPicture"
-          text={'Main picture'}
-          placeholder="Main picture"
-        ></InputFileYup>
-        <InputFileYup
-          name="subPicture1"
-          text={'Sub picture 1'}
-          placeholder="Sub picture 1"
-        ></InputFileYup>
-        <InputFileYup
-          name="subPicture2"
-          text={'Sub picture 2'}
-          placeholder="Sub picture 2"
-        ></InputFileYup>
-        <InputFileYup
-          name="subPicture3"
-          text={'Sub picture 3'}
-          placeholder="Sub picture 3"
-        ></InputFileYup>
-        <InputFileYup
-          name="subPicture4"
-          text={'Sub picture 4'}
-          placeholder="Sub picture 4"
-        ></InputFileYup>
+
+        <div className=" d-flex flex-column gap-2 w-50">
+          <label
+            htmlFor={`mainPictureInput`}
+            className="font-text-primary font-weight-500 ms-2"
+          >
+            Main picture
+          </label>
+          <input
+            className="form-control"
+            onChange={handleOnChangeMainPicture}
+            id={`mainPictureInput`}
+            type="file"
+          ></input>
+          <div className="text-danger font-size-8 ms-2">&nbsp;</div>
+        </div>
+
+        <div className=" d-flex flex-column gap-2 w-50">
+          <label
+            htmlFor={`subPicture1Input`}
+            className="font-text-primary font-weight-500 ms-2"
+          >
+            Sub picture 1
+          </label>
+          <input
+            className="form-control"
+            onChange={handleOnChangeSubPicture1}
+            id={`subPicture1Input`}
+            type="file"
+          ></input>
+          <div className="text-danger font-size-8 ms-2">&nbsp;</div>
+        </div>
+
+        <div className=" d-flex flex-column gap-2 w-50">
+          <label
+            htmlFor={`subPicture2Input`}
+            className="font-text-primary font-weight-500 ms-2"
+          >
+            Sub picture 2
+          </label>
+          <input
+            className="form-control"
+            onChange={handleOnChangeSubPicture2}
+            id={`subPicture2Input`}
+            type="file"
+          ></input>
+          <div className="text-danger font-size-8 ms-2">&nbsp;</div>
+        </div>
+
+        <div className=" d-flex flex-column gap-2 w-50">
+          <label
+            htmlFor={`subPicture3Input`}
+            className="font-text-primary font-weight-500 ms-2"
+          >
+            Sub picture 3
+          </label>
+          <input
+            className="form-control"
+            onChange={handleOnChangeSubPicture3}
+            id={`subPicture3Input`}
+            type="file"
+          ></input>
+          <div className="text-danger font-size-8 ms-2">&nbsp;</div>
+        </div>
+
+        <div className=" d-flex flex-column gap-2 w-50">
+          <label
+            htmlFor={`subPicture4Input`}
+            className="font-text-primary font-weight-500 ms-2"
+          >
+            Sub picture 4
+          </label>
+          <input
+            className="form-control"
+            onChange={handleOnChangeSubPicture4}
+            id={`subPicture4Input`}
+            type="file"
+          ></input>
+          <div className="text-danger font-size-8 ms-2">&nbsp;</div>
+        </div>
+
         <div className=" d-flex flex-column gap-2" style={{ width: '10%' }}>
           <label
             htmlFor={`categoryInput`}
@@ -181,7 +260,7 @@ function CreateProductFormYup() {
             onChange={handleOnChangeCategory}
             id={`categoryInput`}
           >
-            {categories.map((category) => {
+            {categories?.map((category) => {
               return (
                 <option key={category.id} value={category.id}>
                   {category.name}
@@ -203,7 +282,7 @@ function CreateProductFormYup() {
             onChange={handleOnChangeSubCategory}
             id={`subCategoryInput`}
           >
-            {category.SubCategories.map((subCategory) => {
+            {category?.SubCategories.map((subCategory) => {
               return (
                 <option key={subCategory.id} value={subCategory.id}>
                   {subCategory.name}

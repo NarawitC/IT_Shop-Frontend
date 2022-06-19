@@ -7,7 +7,8 @@ import { checkLocation } from '../../../services/checkLocation';
 import { useUserContext } from '../../../contexts/UserContext';
 
 function OrderItemRow({ orderItem, order }) {
-  const { isUserPage } = useUserContext();
+  const location = useLocation();
+  const { isUserPage, isAdminPage } = checkLocation(location.pathname);
   const navigate = useNavigate();
   const { setSelectedPurchasedOrder, selectedPurchasedOrder } =
     useUserContext();
@@ -18,7 +19,7 @@ function OrderItemRow({ orderItem, order }) {
   } = orderItem;
   const itemSubtotal = pricePerUnit * quantity;
   const handleEyeBtnClick = () => {
-    if (!selectedPurchasedOrder || isUserPage) {
+    if (!selectedPurchasedOrder && isUserPage) {
       setSelectedPurchasedOrder(order);
     } else {
       navigate(`/product/info/${productId}`);
@@ -28,15 +29,23 @@ function OrderItemRow({ orderItem, order }) {
     <div className="d-flex ">
       <div className="col-5 align-items-center d-flex gap-3 ms-2">
         <div className="col-1 d-flex align-items-center"></div>
-
-        <Link to={`/product/info/${productId}`}>
+        {isAdminPage ? (
           <img
             src={`${mainPicture}`}
             className="my-1 "
             style={{ width: '100px', height: '80px' }}
             alt="..."
           ></img>
-        </Link>
+        ) : (
+          <Link to={`/product/info/${productId}`}>
+            <img
+              src={`${mainPicture}`}
+              className="my-1 "
+              style={{ width: '100px', height: '80px' }}
+              alt="..."
+            ></img>
+          </Link>
+        )}
 
         <div>{name}</div>
       </div>
@@ -48,9 +57,11 @@ function OrderItemRow({ orderItem, order }) {
         <div className="col-3 align-items-center text-center">
           <DigitWithBahtIcon digit={itemSubtotal} />
         </div>
-        <div className="flex-fill align-items-center text-center">
-          <EyeButton onClick={handleEyeBtnClick}></EyeButton>
-        </div>
+        {isAdminPage ? null : (
+          <div className="flex-fill align-items-center text-center">
+            <EyeButton onClick={handleEyeBtnClick}></EyeButton>
+          </div>
+        )}
       </div>
     </div>
   );

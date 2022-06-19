@@ -15,7 +15,7 @@ function Footer() {
 
   return (
     <footer className=" bg-dark2 font-text3">
-      <section className="content-default-width py-3 mx-auto ">
+      <section className="content-default-width py-3 mx-auto my-0">
         <ITShop color={'white'}></ITShop>
         <div
           className="d-flex justify-content-evenly"

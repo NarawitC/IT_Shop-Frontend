@@ -28,7 +28,14 @@ import CreateProductCompletedPage from '../pages/admin/product/CreateProductComp
 import AdminUpdateProductPage from '../pages/admin/product/AdminUpdateProductPage';
 import UpdateProductCompletedPage from '../pages/admin/product/UpdateProductCompletedPage';
 
+import AdminSideBar from '../pages/admin/manage/AdminSideBar';
+import AdminOrderPage from '../pages/admin/manage/order/AdminOrderPage';
+import AdminSelectedPendingOrderPage from '../pages/admin/manage/order/AdminSelectedPendingOrderPage';
+import AdminConfirmedCompletedPage from '../pages/admin/manage/order/AdminConfirmedCompletedPage';
+
 import { useLocation } from 'react-router-dom';
+import { ORDER_STATUS_PENDING } from '../config/env';
+import AdminProductPage from '../pages/admin/manage/product/AdminProductPage';
 function Router() {
   const location = useLocation();
   const { user } = useAuthContext();
@@ -42,7 +49,7 @@ function Router() {
             <>
               (
               <Route path="/" element={<HeaderAndFooter></HeaderAndFooter>}>
-                <Route path="" element={<HomePage></HomePage>} />
+                <Route path="" element={<AllProductPage></AllProductPage>} />
                 <Route path="user" element={<UserPage></UserPage>}></Route>
                 <Route
                   path="user/infoUpdated"
@@ -82,8 +89,15 @@ function Router() {
                   element={<OrderCompletedPage></OrderCompletedPage>}
                 ></Route>
               </Route>
-              <Route path="/" element={<Navigate to="/"></Navigate>}></Route>
-              <Route path="*" element={<Navigate to="/"></Navigate>}></Route>)
+              <Route
+                path="/"
+                element={<Navigate to="/product"></Navigate>}
+              ></Route>
+              <Route
+                path="*"
+                element={<Navigate to="/product"></Navigate>}
+              ></Route>
+              )
             </>
           )}
           {admin && (
@@ -112,14 +126,36 @@ function Router() {
                     <UpdateProductCompletedPage></UpdateProductCompletedPage>
                   }
                 ></Route>
+                <Route path="" element={<AdminSideBar></AdminSideBar>}>
+                  <Route
+                    path="product"
+                    element={<AdminProductPage></AdminProductPage>}
+                  ></Route>
+                  <Route
+                    path="order"
+                    element={<AdminOrderPage></AdminOrderPage>}
+                  ></Route>
+                  <Route
+                    path={`order/${ORDER_STATUS_PENDING}/:orderId`}
+                    element={
+                      <AdminSelectedPendingOrderPage></AdminSelectedPendingOrderPage>
+                    }
+                  ></Route>
+                </Route>
+                <Route
+                  path={`order/confirmCompleted`}
+                  element={
+                    <AdminConfirmedCompletedPage></AdminConfirmedCompletedPage>
+                  }
+                ></Route>
               </Route>
               <Route
                 path=""
-                element={<Navigate to="/admin"></Navigate>}
+                element={<Navigate to="/admin/order"></Navigate>}
               ></Route>
               <Route
                 path="*"
-                element={<Navigate to="/admin"></Navigate>}
+                element={<Navigate to="/admin/order"></Navigate>}
               ></Route>
             </>
           )}

@@ -8,7 +8,7 @@ function UpdateProductCompletedPage() {
       <CompletedAction
         displayText={'Update product completed'}
         buttonText={'Back to Home page'}
-        buttonOnClick={() => navigate('/admin')}
+        buttonOnClick={() => navigate('/admin/order')}
       ></CompletedAction>
     </div>
   );

@@ -14,7 +14,7 @@ import { getProductById } from '../../../api/admin/product';
 import { getAllCategories } from '../../../api/admin/category';
 import { useEffect, useState } from 'react';
 
-function UpdateProductFormYup() {
+function UpdateProductFormYup({ setIsLoading }) {
   const [editMode, setEditMode] = useState(false);
   const { productId } = useParams();
   const { setError } = useErrorContext();
@@ -23,16 +23,16 @@ function UpdateProductFormYup() {
   const [category, setCategory] = useState({ SubCategories: [] });
   const [subCategory, setSubCategory] = useState({});
   const [product, setProduct] = useState({});
+  const [mainPicture, setMainPicture] = useState(null);
+  const [subPicture1, setSubPicture1] = useState(null);
+  const [subPicture2, setSubPicture2] = useState(null);
+  const [subPicture3, setSubPicture3] = useState(null);
+  const [subPicture4, setSubPicture4] = useState(null);
   const {
     name,
     description,
     quantity,
     price,
-    mainPicture,
-    subPicture1,
-    subPicture2,
-    subPicture3,
-    subPicture4,
     properties,
     categoryId,
     subCategoryId,
@@ -56,10 +56,9 @@ function UpdateProductFormYup() {
 
   const handleUpdateSubmit = async (data, reset) => {
     try {
+      setIsLoading(true);
       const { name, description, quantity, price, properties } = data;
-      console.log(category);
-      console.log(subCategory);
-      console.log(data);
+
       const formData = new FormData();
       formData.append('name', name);
       formData.append('description', description);
@@ -75,6 +74,7 @@ function UpdateProductFormYup() {
       formData.append('properties', properties);
 
       await adminUpdateProduct(productId, formData);
+      setIsLoading(false);
       navigate('/admin/product/updateProduct/completed');
       reset();
     } catch (err) {
@@ -98,6 +98,28 @@ function UpdateProductFormYup() {
     );
     setSubCategory(subCategory);
   };
+
+  const handleOnChangeMainPicture = (e) => {
+    const { files } = e.target;
+    setMainPicture(files[0]);
+  };
+  const handleOnChangeSubPicture1 = (e) => {
+    const { files } = e.target;
+    setSubPicture1(files[0]);
+  };
+  const handleOnChangeSubPicture2 = (e) => {
+    const { files } = e.target;
+    setSubPicture2(files[0]);
+  };
+  const handleOnChangeSubPicture3 = (e) => {
+    const { files } = e.target;
+    setSubPicture3(files[0]);
+  };
+  const handleOnChangeSubPicture4 = (e) => {
+    const { files } = e.target;
+    setSubPicture4(files[0]);
+  };
+
   useEffect(() => {
     const fetchProduct = async () => {
       const {
@@ -169,36 +191,90 @@ function UpdateProductFormYup() {
             text={'Properties'}
             placeholder="Properties"
           ></InputYup>
-          <InputFileYup
-            name="mainPicture"
-            disabled={!editMode}
-            text={'Main picture'}
-            placeholder="Main picture"
-          ></InputFileYup>
-          <InputFileYup
-            name="subPicture1"
-            disabled={!editMode}
-            text={'Sub picture 1'}
-            placeholder="Sub picture 1"
-          ></InputFileYup>
-          <InputFileYup
-            name="subPicture2"
-            disabled={!editMode}
-            text={'Sub picture 2'}
-            placeholder="Sub picture 2"
-          ></InputFileYup>
-          <InputFileYup
-            name="subPicture3"
-            disabled={!editMode}
-            text={'Sub picture 3'}
-            placeholder="Sub picture 3"
-          ></InputFileYup>
-          <InputFileYup
-            name="subPicture4"
-            disabled={!editMode}
-            text={'Sub picture 4'}
-            placeholder="Sub picture 4"
-          ></InputFileYup>
+          <div className=" d-flex flex-column gap-2 w-50">
+            <label
+              htmlFor={`mainPictureInput`}
+              className="font-text-primary font-weight-500 ms-2"
+            >
+              Main picture
+            </label>
+            <input
+              disabled={!editMode}
+              className="form-control"
+              onChange={handleOnChangeMainPicture}
+              id={`mainPictureInput`}
+              type="file"
+            ></input>
+            <div className="text-danger font-size-8 ms-2">&nbsp;</div>
+          </div>
+
+          <div className=" d-flex flex-column gap-2 w-50">
+            <label
+              htmlFor={`subPicture1Input`}
+              className="font-text-primary font-weight-500 ms-2"
+            >
+              Sub picture 1
+            </label>
+            <input
+              disabled={!editMode}
+              className="form-control"
+              onChange={handleOnChangeSubPicture1}
+              id={`subPicture1Input`}
+              type="file"
+            ></input>
+            <div className="text-danger font-size-8 ms-2">&nbsp;</div>
+          </div>
+
+          <div className=" d-flex flex-column gap-2 w-50">
+            <label
+              htmlFor={`subPicture2Input`}
+              className="font-text-primary font-weight-500 ms-2"
+            >
+              Sub picture 2
+            </label>
+            <input
+              disabled={!editMode}
+              className="form-control"
+              onChange={handleOnChangeSubPicture2}
+              id={`subPicture2Input`}
+              type="file"
+            ></input>
+            <div className="text-danger font-size-8 ms-2">&nbsp;</div>
+          </div>
+
+          <div className=" d-flex flex-column gap-2 w-50">
+            <label
+              htmlFor={`subPicture3Input`}
+              className="font-text-primary font-weight-500 ms-2"
+            >
+              Sub picture 3
+            </label>
+            <input
+              disabled={!editMode}
+              className="form-control"
+              onChange={handleOnChangeSubPicture3}
+              id={`subPicture3Input`}
+              type="file"
+            ></input>
+            <div className="text-danger font-size-8 ms-2">&nbsp;</div>
+          </div>
+
+          <div className=" d-flex flex-column gap-2 w-50">
+            <label
+              htmlFor={`subPicture4Input`}
+              className="font-text-primary font-weight-500 ms-2"
+            >
+              Sub picture 4
+            </label>
+            <input
+              disabled={!editMode}
+              className="form-control"
+              onChange={handleOnChangeSubPicture4}
+              id={`subPicture4Input`}
+              type="file"
+            ></input>
+            <div className="text-danger font-size-8 ms-2">&nbsp;</div>
+          </div>
           <div className=" d-flex flex-column gap-2" style={{ width: '10%' }}>
             <label
               htmlFor={`categoryInput`}

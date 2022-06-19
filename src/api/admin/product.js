@@ -11,3 +11,7 @@ export const getProductById = async (id) => {
 export const adminUpdateProduct = async (id, input) => {
   return await axios.patch(`/admin/product/updateProduct/${id}`, input);
 };
+
+export const getAllProductInfo = async () => {
+  return axios.get(`/product/allProduct`);
+};

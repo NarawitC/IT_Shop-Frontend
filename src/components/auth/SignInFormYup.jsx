@@ -12,7 +12,7 @@ import { useErrorContext } from '../../contexts/ErrorContext';
 import { checkLocation } from '../../services/checkLocation';
 import { useLocation } from 'react-router-dom';
 
-function SignInFormYup() {
+function SignInFormYup({ setIsLoading }) {
   const location = useLocation();
   const { isAdminPage } = checkLocation(location.pathname);
   const navigate = useNavigate();
@@ -27,6 +27,7 @@ function SignInFormYup() {
 
   const handleSignInSubmit = async (data, reset) => {
     try {
+      setIsLoading(true);
       if (isAdminPage) {
         await signInAdmin({
           email: data.email,
@@ -38,7 +39,9 @@ function SignInFormYup() {
           password: data.password,
         });
       }
-      navigate('/');
+      setIsLoading(false);
+
+      navigate('/product');
     } catch (err) {
       setError(err.response.data.message);
     }
@@ -47,6 +50,7 @@ function SignInFormYup() {
   const handleSignUpBtn = () => {
     navigate('/auth/signUp');
   };
+
   return (
     <FormYup
       onSubmit={handleSignInSubmit}

@@ -55,21 +55,28 @@ function ProductAddToCartSection({ product }) {
         maxQuantity={maxQuantity}
         onClickDecrease={() => setInputQuantity((prev) => prev - 1)}
         onClickIncrease={() => setInputQuantity((prev) => prev + 1)}
-        state={inputQuantity}
+        state={maxQuantity && inputQuantity}
       ></Counter>
       <hr />
-      {productInCart ? (
-        <Button
-          onClick={handleUpdateInCartButton}
-          className={'my-btn-primary '}
-        >
-          Update In-Cart product
-        </Button>
-      ) : (
-        <Button onClick={handleAddToCartButton} className={'btn btn-primary'}>
-          Add to cart
-        </Button>
-      )}
+      {maxQuantity > 0 ? (
+        <>
+          {productInCart ? (
+            <Button
+              onClick={handleUpdateInCartButton}
+              className={'my-btn-primary '}
+            >
+              Update In-Cart product
+            </Button>
+          ) : (
+            <Button
+              onClick={handleAddToCartButton}
+              className={'btn btn-primary'}
+            >
+              Add to cart
+            </Button>
+          )}
+        </>
+      ) : null}
     </div>
   );
 }

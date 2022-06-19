@@ -7,6 +7,8 @@ export const checkLocation = (pathname) => {
   const isProductPage = pathname.includes('/product');
   const isOrderCheckoutPage = pathname.includes('/order/checkout');
   const isAdminPage = pathname.includes('/admin');
+  const isAdminOrderPage = pathname.includes('/admin/order');
+  const isAdminProductPage = pathname.includes('/admin/product');
 
   return {
     isAuthPage,
@@ -16,5 +18,7 @@ export const checkLocation = (pathname) => {
     isAdminPage,
     isHomePage,
     identificationText,
+    isAdminOrderPage,
+    isAdminProductPage,
   };
 };

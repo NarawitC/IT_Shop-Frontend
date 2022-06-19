@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { getProductById } from '../../api/user/product';
 
 import ProductMainDisplay from '../../components/product/ProductMainDisplay';
