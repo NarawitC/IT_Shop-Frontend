@@ -16,7 +16,6 @@ function AdminSelectedPendingOrderPage() {
   const selectedPendingOrder = pendingOrders.find((order) => {
     return order.id === +orderId;
   });
-
   return (
     <div>
       <OrderAndDeliveryLayout>
@@ -33,6 +32,13 @@ function AdminSelectedPendingOrderPage() {
             order={selectedPendingOrder}
           ></AdminSelectedPendingOrder>
         </AllOrderLayout>
+        <div className="d-flex justify-content-center bg-light1 py-3">
+          <img
+            src={selectedPendingOrder.paymentSlip}
+            alt=""
+            style={{ maxHeight: '600px' }}
+          />
+        </div>
         <AdminTotalPaymentDetail
           order={selectedPendingOrder}
         ></AdminTotalPaymentDetail>
