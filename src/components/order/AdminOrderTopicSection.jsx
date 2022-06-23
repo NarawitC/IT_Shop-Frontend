@@ -4,6 +4,7 @@ function AdminOrderTopicSection({
   textCol2,
   textCol3,
   textCol4,
+  textCol5,
   backgroundColor,
   textColor,
 }) {
@@ -16,11 +17,14 @@ function AdminOrderTopicSection({
         {textCol1}
       </div>
 
-      <div className="col-2 text-center " style={{ color: textColor }}>
+      <div className="col-3 text-center " style={{ color: textColor }}>
         {textCol2}
       </div>
       <div className="col-2 text-center" style={{ color: textColor }}>
         {textCol3}
+      </div>
+      <div className="col-2 text-center" style={{ color: textColor }}>
+        {textCol4}
       </div>
       <div className="col-2 text-center" style={{ color: textColor }}>
         {textCol4}

@@ -39,10 +39,11 @@ function AdminProductPage() {
         <AdminOrderTopicSection
           backgroundColor={'#43464e'}
           textColor={'#ffffff'}
-          textCol1={'Product id'}
-          textCol2={'Quantity'}
-          textCol3={'Price'}
-          textCol4={'Edit'}
+          textCol1={'Product picture'}
+          textCol2={'Product name / id'}
+          textCol3={'Quantity'}
+          textCol4={'Price'}
+          textCol5={'Edit'}
         ></AdminOrderTopicSection>
         <OrderListLayout>
           {products.map((product) => (
