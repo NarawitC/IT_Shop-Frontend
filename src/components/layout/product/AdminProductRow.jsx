@@ -14,11 +14,7 @@ function AdminProductRow({ product }) {
   return (
     <div className="d-flex px-2 py-2 text-center align-items-center justify-content-between bg-light1">
       <div className="col-2  align-items-center text-center">
-        <img
-          src={mainPicture}
-          alt=""
-          style={{ width: '150px', height: '120px' }}
-        />
+        <img src={mainPicture} style={{ width: '150px', height: '120px' }} />
       </div>
       <div className="col-3  align-items-center text-center">
         <div>{`Product name: ${name}`}</div>

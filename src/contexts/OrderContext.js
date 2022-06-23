@@ -17,25 +17,23 @@ const OrderContextProvider = ({ children }) => {
   const [placeOrderOrder, setPlaceOrderOrder] = useState({});
 
   useEffect(() => {
-    if (user) {
-      const fetchInCartOrder = async () => {
-        const {
-          data: {
-            order: { OrderItems },
-          },
-        } = await getInCartOrder();
-        OrderItems.forEach((orderItem) => {
-          setInCartOrderItems((prev) => {
-            return [
-              ...prev,
-              { product: orderItem.Product, inputQuantity: orderItem.quantity },
-            ];
-          });
+    const fetchInCartOrder = async () => {
+      const {
+        data: {
+          order: { OrderItems },
+        },
+      } = await getInCartOrder();
+      OrderItems.forEach((orderItem) => {
+        setInCartOrderItems((prev) => {
+          return [
+            ...prev,
+            { product: orderItem.Product, inputQuantity: orderItem.quantity },
+          ];
         });
-      };
-      fetchInCartOrder();
-    }
-  }, [user]);
+      });
+    };
+    fetchInCartOrder();
+  }, []);
 
   return (
     <OrderContext.Provider

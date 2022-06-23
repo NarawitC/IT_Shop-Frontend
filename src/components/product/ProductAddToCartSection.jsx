@@ -29,7 +29,7 @@ function ProductAddToCartSection({ product }) {
   function handleUpdateInCartButton() {
     setInCartOrderItems((prev) => {
       prev[inCartOrderItemIdx].inputQuantity = inputQuantity;
-      console.log(prev);
+      // console.log(prev);
       return prev;
     });
   }
