@@ -41,7 +41,7 @@ function AdminTotalPaymentDetail({ order }) {
           className={'btn btn-primary my-2 mx-5'}
           onClick={handleConfirmButton}
         >
-          Confirmed
+          Confirm
         </Button>
       </div>
     </div>
